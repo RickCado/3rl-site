@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>3RL — Consultoria, assessoria e soluções com tecnologia</title>
-<meta name="description" content="3RL: consultoria, assessoria e soluções com tecnologia. Atendimento remoto para clientes no mundo inteiro.">
-<meta property="og:title" content="3RL — Consultoria, assessoria e soluções com tecnologia">
-<meta property="og:description" content="Consultoria, assessoria e soluções com tecnologia. Atendemos o mundo inteiro.">
+<title>3RL — Consultoria, automação, tecnologia e desenvolvimento</title>
+<meta name="description" content="3RL: consultoria, automação, tecnologia e desenvolvimento. Atendimento remoto para clientes no mundo inteiro.">
+<meta property="og:title" content="3RL — Consultoria, automação, tecnologia e desenvolvimento">
+<meta property="og:description" content="Consultoria, automação, tecnologia e desenvolvimento. Atendemos o mundo inteiro.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.3rl.com.br/">
 <meta name="theme-color" content="#0b1a2b">
@@ -48,12 +48,16 @@
   h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:12px}
   .sub{color:var(--muted);max-width:620px;margin-bottom:40px}
 
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media (max-width:760px){.grid{grid-template-columns:1fr}}
   .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:border-color .2s,transform .2s}
   .card:hover{border-color:var(--accent);transform:translateY(-3px)}
   .icon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(34,211,182,.12);color:var(--accent);margin-bottom:16px}
   .card h3{font-size:1.1rem;margin-bottom:8px}
   .card p{color:var(--muted);font-size:.95rem}
+  .card ul{list-style:none;margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+  .card li{position:relative;padding-left:22px;font-size:.92rem;margin-bottom:8px;color:var(--ink)}
+  .card li::before{content:"";position:absolute;left:2px;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--accent)}
 
   .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;counter-reset:s}
   .step{padding:26px;border-left:2px solid var(--accent);background:linear-gradient(90deg,rgba(34,211,182,.06),transparent)}
@@ -88,9 +92,9 @@
 <main>
   <div class="hero">
     <div class="wrap">
-      <div class="tag" data-i18n="tag">Consultoria · Assessoria · Tecnologia</div>
+      <div class="tag" data-i18n="tag">Consultoria · Automação · Tecnologia · Desenvolvimento</div>
       <h1 data-i18n-html="h1">Tecnologia a serviço do <em>seu próximo passo</em>.</h1>
-      <p class="lead" data-i18n="lead">Consultoria, assessoria e soluções com tecnologia para quem quer decidir melhor, trabalhar com menos atrito e crescer com segurança.</p>
+      <p class="lead" data-i18n="lead">Consultoria, automação, tecnologia e desenvolvimento para quem quer decidir melhor, trabalhar com menos atrito e crescer com segurança.</p>
       <div class="cta">
         <a href="mailto:adm@3rl.com.br?subject=Contato%20pelo%20site" class="btn" data-i18n="cta1">Solicitar contato</a>
         <a href="#servicos" class="btn ghost" data-i18n="cta2">Ver serviços</a>
@@ -106,22 +110,26 @@
         <div class="card">
           <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
           <h3 data-i18n="s1t">Consultoria</h3>
-          <p data-i18n="s1d">Diagnóstico do cenário atual, planejamento e escolha das ferramentas e caminhos certos para o seu objetivo.</p>
-        </div>
-        <div class="card">
-          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h3 data-i18n="s2t">Assessoria</h3>
-          <p data-i18n="s2d">Acompanhamento contínuo de projetos e decisões, com orientação técnica do início ao fim.</p>
+          <p data-i18n="s1d">Diagnóstico e planejamento para você decidir com segurança onde e como investir em tecnologia.</p>
+          <ul><li data-i18n="s1b1">Diagnóstico de processos, sistemas e ferramentas atuais</li><li data-i18n="s1b2">Plano de ação e roadmap de tecnologia</li><li data-i18n="s1b3">Escolha de plataformas, fornecedores e soluções</li><li data-i18n="s1b4">Apoio à tomada de decisão com base em dados</li></ul>
         </div>
         <div class="card">
           <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div>
-          <h3 data-i18n="s3t">Automação de processos</h3>
-          <p data-i18n="s3d">Menos tarefas manuais e repetitivas: fluxos automatizados que economizam tempo e reduzem erros.</p>
+          <h3 data-i18n="s2t">Automação</h3>
+          <p data-i18n="s2d">Eliminamos tarefas manuais e repetitivas para que a sua equipe foque no que realmente importa.</p>
+          <ul><li data-i18n="s2b1">Automação de rotinas e fluxos de trabalho</li><li data-i18n="s2b2">Integração entre sistemas, planilhas e e-mails</li><li data-i18n="s2b3">Relatórios, alertas e notificações automáticos</li><li data-i18n="s2b4">Assistentes e agentes de IA para rotinas internas</li></ul>
+        </div>
+        <div class="card">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <h3 data-i18n="s3t">Tecnologia</h3>
+          <p data-i18n="s3d">Estrutura tecnológica bem configurada, segura e pronta para crescer junto com o seu negócio.</p>
+          <ul><li data-i18n="s3b1">Domínio, e-mail corporativo e serviços em nuvem</li><li data-i18n="s3b2">Segurança da informação e boas práticas</li><li data-i18n="s3b3">Implantação de ferramentas de produtividade e IA</li><li data-i18n="s3b4">Orientação e suporte técnico contínuo</li></ul>
         </div>
         <div class="card">
           <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></div>
-          <h3 data-i18n="s4t">Soluções sob medida</h3>
-          <p data-i18n="s4d">Sistemas, integrações e uso de inteligência artificial desenhados para a realidade do seu negócio.</p>
+          <h3 data-i18n="s4t">Desenvolvimento</h3>
+          <p data-i18n="s4d">Criamos soluções digitais sob medida, do site institucional ao sistema que organiza a sua operação.</p>
+          <ul><li data-i18n="s4b1">Sites e páginas institucionais</li><li data-i18n="s4b2">Sistemas web e aplicações sob medida</li><li data-i18n="s4b3">Painéis (dashboards) e ferramentas internas</li><li data-i18n="s4b4">APIs e integrações personalizadas</li></ul>
         </div>
       </div>
     </div>
@@ -160,29 +168,33 @@
 <footer>
   <div class="wrap">
     <span>© <span id="yr">2026</span> 3RL</span>
-    <span data-i18n="foot">Consultoria, assessoria e soluções com tecnologia</span>
+    <span data-i18n="foot">Consultoria, automação, tecnologia e desenvolvimento</span>
   </div>
 </footer>
 
 <script>
   const T = {
     en: {
-      navContact:"Contact us", tag:"Consulting · Advisory · Technology",
+      navContact:"Contact us", tag:"Consulting · Automation · Technology · Development",
       h1:'Technology serving <em>your next step</em>.',
-      lead:"Consulting, advisory and technology solutions for those who want to make better decisions, work with less friction and grow safely.",
+      lead:"Consulting, automation, technology and development for those who want to make better decisions, work with less friction and grow safely.",
       cta1:"Get in touch", cta2:"Our services",
       svcTitle:"What we do", svcSub:"Hands-on work, from assessment to delivery, focused on practical results.",
-      s1t:"Consulting", s1d:"Assessment of your current situation, planning and choosing the right tools and paths for your goal.",
-      s2t:"Advisory", s2d:"Ongoing support for projects and decisions, with technical guidance from start to finish.",
-      s3t:"Process automation", s3d:"Fewer manual, repetitive tasks: automated workflows that save time and reduce errors.",
-      s4t:"Custom solutions", s4d:"Systems, integrations and artificial intelligence designed around your business.",
+      s1t:"Consulting", s1d:"Assessment and planning so you can decide with confidence where and how to invest in technology.",
+      s1b1:"Assessment of current processes, systems and tools", s1b2:"Action plan and technology roadmap", s1b3:"Selection of platforms, vendors and solutions", s1b4:"Data-driven decision support",
+      s2t:"Automation", s2d:"We eliminate manual, repetitive work so your team can focus on what really matters.",
+      s2b1:"Automation of routines and workflows", s2b2:"Integration between systems, spreadsheets and email", s2b3:"Automatic reports, alerts and notifications", s2b4:"AI assistants and agents for internal routines",
+      s3t:"Technology", s3d:"A well-configured, secure technology foundation, ready to grow with your business.",
+      s3b1:"Domain, business email and cloud services", s3b2:"Information security and best practices", s3b3:"Rollout of productivity and AI tools", s3b4:"Ongoing technical guidance and support",
+      s4t:"Development", s4d:"We build custom digital solutions, from your company website to the system that organizes your operation.",
+      s4b1:"Company websites and landing pages", s4b2:"Custom web systems and applications", s4b3:"Dashboards and internal tools", s4b4:"Custom APIs and integrations",
       howTitle:"How we work", howSub:"A simple, transparent process.",
       p1t:"Assessment", p1d:"We understand your challenge, its context and what needs to change.",
       p2t:"Proposal", p2d:"We present the path, scope and timeline clearly.",
       p3t:"Execution", p3d:"We put it into practice and follow up until results show.",
       ctTitle:"Let's talk?", ctSub:"Tell us about your challenge. We reply by email.",
       world:"Remote service for clients worldwide", ctBtn:"Send an email",
-      foot:"Consulting, advisory and technology solutions"
+      foot:"Consulting, automation, technology and development"
     }
   };
   const pt = {};
