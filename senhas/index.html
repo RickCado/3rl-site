@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-MoeL9BGx3vtWQKtLbZP7scGAhL79FARq4Af54QLQNLc='; style-src 'sha256-Res+TsX5zrVFI251edAttkVLi8axYh6THS2QOnyVOFg='; img-src data: 'self'; base-uri 'none'; form-action 'none'; manifest-src 'self'; worker-src 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Gerador de Senhas Seguras — 3RL</title>
+<meta name="description" content="Gerador de senhas fortes e gratuito da 3RL. Tudo acontece no seu aparelho: nada é enviado nem armazenado. Funciona offline.">
+<meta name="theme-color" content="#070f1c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2322d3b6'/%3E%3Cstop offset='1' stop-color='%236366f1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Arial,Helvetica,sans-serif' font-size='24' font-weight='800' fill='%23070f1c' text-anchor='middle'%3E3RL%3C/text%3E%3C/svg%3E">
+<link rel="canonical" href="https://www.3rl.com.br/senhas/">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-title" content="Senhas 3RL">
+<meta property="og:title" content="Gerador de Senhas Seguras — 3RL">
+<meta property="og:description" content="Senhas fortes em um clique, geradas no seu aparelho. Grátis e offline.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.3rl.com.br/senhas/">
+<meta property="og:image" content="https://www.3rl.com.br/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>:root{--bg:#070f1c;--ink:#eef3f9;--muted:#93a4b8;--line:rgba(255,255,255,.09);--glass:rgba(255,255,255,.04);--glass2:rgba(255,255,255,.08);--c1:#22d3b6;--c2:#38bdf8;--c3:#6366f1;--grad:linear-gradient(120deg,var(--c1),var(--c2) 45%,var(--c3));--r:22px;--mono:ui-monospace,"SF Mono","Cascadia Mono","Roboto Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
+a{color:inherit}
+button,input{font:inherit;color:inherit}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+h1,h2{letter-spacing:-.025em;line-height:1.15}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.muted{color:var(--muted)}
+.small{font-size:.85rem}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.35}
+.b1{width:460px;height:460px;background:var(--c1);top:-200px;left:-160px}
+.b2{width:420px;height:420px;background:var(--c3);top:-160px;right:-180px}
+header{padding-top:16px}
+.nav{display:flex;align-items:center;justify-content:space-between;height:58px;padding:0 10px 0 20px;background:rgba(10,20,36,.6);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:999px}
+.logo{font-weight:700;font-size:1.35rem;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo i{width:28px;height:28px;border-radius:8px;background:var(--grad);display:inline-block}
+.logo b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lang{display:inline-flex;align-items:center;gap:8px;background:var(--glass);border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;font-size:.85rem;font-weight:600}
+.lang:hover{background:var(--glass2)}
+.lang svg{width:20px;height:14px;border-radius:2px;display:block}
+.hero{padding:54px 0 28px;text-align:center}
+.eyebrow{font-size:.75rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:12px;display:inline-block}
+h1{font-size:clamp(2rem,5.5vw,3rem);margin-bottom:12px}
+.sub{color:var(--muted);max-width:540px;margin:0 auto}
+.card{border-radius:var(--r);padding:28px;border:1px solid var(--line);background:linear-gradient(165deg,rgba(255,255,255,.07),rgba(255,255,255,.015))}
+.pwbox{position:relative;display:flex;align-items:center;gap:10px;background:rgba(3,8,16,.7);border:1px solid var(--line);border-radius:16px;padding:14px 12px 14px 18px;min-height:72px}
+.pw{flex:1;font-family:var(--mono);font-size:clamp(1.05rem,3.6vw,1.4rem);letter-spacing:.04em;word-break:break-all;line-height:1.45;user-select:all}
+.pw .d{color:#7dd3fc}.pw .s{color:#f0abfc}
+.pwact{display:flex;gap:6px;flex-shrink:0}
+.ic{width:42px;height:42px;border-radius:12px;border:1px solid var(--line);background:var(--glass);display:grid;place-items:center;cursor:pointer;transition:background .2s,transform .1s}
+.ic:hover{background:var(--glass2)}.ic:active{transform:scale(.94)}
+.ic.main{background:var(--grad);border:0;color:#04121f}
+.ic svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ic .off{display:none}
+.ic.hidden .off{display:inline}
+.toast{position:absolute;right:10px;top:-14px;transform:translateY(-100%);background:var(--c1);color:#04121f;font-size:.8rem;font-weight:700;padding:5px 12px;border-radius:999px;opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap}
+.toast.on{opacity:1}
+.meter{margin:20px 0 6px}
+.bar{height:8px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden}
+.bar span{display:block;height:100%;width:0;border-radius:99px;transition:width .35s,background .35s}
+.mrow{display:flex;justify-content:space-between;align-items:baseline;margin-top:8px;font-size:.92rem}
+.len{display:flex;align-items:center;gap:14px;margin:22px 0 18px}
+.len label{font-weight:600;min-width:70px}
+.len input[type=range]{flex:1;-webkit-appearance:none;appearance:none;height:6px;border-radius:99px;background:rgba(255,255,255,.1);outline-offset:6px}
+.len input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--c1);box-shadow:0 0 0 5px rgba(34,211,182,.2);cursor:pointer}
+.len input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radius:50%;background:var(--c1);box-shadow:0 0 0 5px rgba(34,211,182,.2);cursor:pointer}
+.len input[type=number]{width:68px;text-align:center;background:rgba(3,8,16,.7);border:1px solid var(--line);border-radius:10px;padding:6px 4px;font-family:var(--mono);font-weight:700}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px}
+.opt{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:12px;background:var(--glass);border:1px solid var(--line);cursor:pointer;font-size:.92rem;user-select:none}
+.opt:hover{background:var(--glass2)}
+.opt code{margin-left:auto;font-family:var(--mono);color:var(--muted);font-size:.78rem}
+.opt input{-webkit-appearance:none;appearance:none;width:36px;height:20px;border-radius:99px;background:rgba(255,255,255,.15);position:relative;flex-shrink:0;cursor:pointer;transition:background .2s}
+.opt input::after{content:"";position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .2s}
+.opt input:checked{background:var(--c1)}
+.opt input:checked::after{transform:translateX(16px)}
+.opt input:focus-visible,.btn:focus-visible,.ic:focus-visible,.lang:focus-visible{outline:2px solid var(--c2);outline-offset:2px}
+.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--grad);color:#04121f;font-weight:700;text-decoration:none;padding:13px 24px;border-radius:999px;border:0;cursor:pointer;transition:transform .15s,box-shadow .2s}
+.btn:hover{box-shadow:0 10px 30px -10px var(--c2)}.btn:active{transform:scale(.98)}
+.btn.wide{width:100%;padding:15px;font-size:1.02rem}
+.btn.ghost{background:var(--glass);color:var(--ink);border:1px solid var(--line)}
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0}
+.feat{padding:18px;border-radius:16px;border:1px solid var(--line);background:var(--glass)}
+.feat b{display:block;margin-bottom:4px}
+.feat p{color:var(--muted);font-size:.88rem}
+.dl h2,.cta h2{font-size:1.35rem;margin-bottom:6px}
+.dl .row{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 10px}
+.dl details{margin-top:12px;font-size:.88rem;color:var(--muted)}
+.dl summary{cursor:pointer;color:var(--ink)}
+.dl code{font-family:var(--mono);font-size:.78rem;word-break:break-all;display:block;margin:8px 0;padding:10px;border-radius:10px;background:rgba(3,8,16,.7);border:1px solid var(--line);color:var(--ink)}
+.cta{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:22px 0}
+footer{display:flex;justify-content:space-between;padding:10px 20px 40px;color:var(--muted);font-size:.82rem}
+.clip{position:fixed;left:-9999px;top:0;opacity:0}
+[hidden]{display:none!important}
+@media (max-width:620px){.opts,.feats{grid-template-columns:1fr}.cta{flex-direction:column;align-items:flex-start}.card{padding:20px}.pwbox{flex-direction:column;align-items:stretch}.pwact{justify-content:flex-end}.hero{padding-top:36px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><span class="blob b1"></span><span class="blob b2"></span></div>
+
+<header class="wrap">
+  <nav class="nav">
+    <a href="https://www.3rl.com.br/" class="logo" aria-label="3RL"><i></i><span>3<b>RL</b></span></a>
+    <button class="lang" id="langBtn" type="button"></button>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="eyebrow" data-i18n="eyebrow">Ferramenta gratuita</div>
+    <h1 data-i18n="title">Gerador de senhas seguras</h1>
+    <p class="sub" data-i18n="sub">Crie senhas fortes em um clique. Tudo acontece no seu aparelho: nada é enviado e nada é armazenado.</p>
+  </section>
+
+  <section class="card tool" aria-labelledby="pwLabel">
+    <span id="pwLabel" class="sr" data-i18n="pwLabel">Senha gerada</span>
+    <div class="pwbox">
+      <output id="pw" class="pw" aria-live="polite"></output>
+      <div class="pwact">
+        <button class="ic" id="eyeBtn" type="button" data-i18n-aria="hide" aria-label="Ocultar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path id="eyePath" d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle id="eyeDot" cx="12" cy="12" r="3"/><path id="eyeSlash" class="off" d="M3 3l18 18"/></svg>
+        </button>
+        <button class="ic" id="regenBtn" type="button" data-i18n-aria="regen" aria-label="Gerar outra">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg>
+        </button>
+        <button class="ic main" id="copyBtn" type="button" data-i18n-aria="copy" aria-label="Copiar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2.5"/><path d="M16 8V6.5A2.5 2.5 0 0 0 13.5 4h-7A2.5 2.5 0 0 0 4 6.5v7A2.5 2.5 0 0 0 6.5 16H8"/></svg>
+        </button>
+      </div>
+      <div class="toast" id="toast" role="status"></div>
+    </div>
+
+    <div class="meter">
+      <div class="bar"><span id="barFill"></span></div>
+      <div class="mrow">
+        <strong id="sLabel"></strong>
+        <span id="sBits" class="muted"></span>
+      </div>
+      <p class="muted small" id="sTime"></p>
+    </div>
+
+    <div class="len">
+      <label for="len" data-i18n="length">Tamanho</label>
+      <input type="range" id="len" min="8" max="64" value="20">
+      <input type="number" id="lenNum" min="8" max="64" value="20" data-i18n-aria="length" aria-label="Tamanho">
+    </div>
+
+    <div class="opts">
+      <label class="opt"><input type="checkbox" id="oUpper" checked><span data-i18n="upper">Maiúsculas</span><code>ABC</code></label>
+      <label class="opt"><input type="checkbox" id="oLower" checked><span data-i18n="lower">Minúsculas</span><code>abc</code></label>
+      <label class="opt"><input type="checkbox" id="oDigits" checked><span data-i18n="digits">Números</span><code>123</code></label>
+      <label class="opt"><input type="checkbox" id="oSymbols" checked><span data-i18n="symbols">Símbolos</span><code>#$%</code></label>
+      <label class="opt"><input type="checkbox" id="oAmbig"><span data-i18n="ambig">Evitar parecidos</span><code>0 O l 1</code></label>
+      <label class="opt"><input type="checkbox" id="oClear" checked><span data-i18n="clear">Apagar cópia em 30 s</span><code>⏱</code></label>
+    </div>
+
+    <button class="btn wide" id="genBtn" type="button" data-i18n="gen">Gerar nova senha</button>
+  </section>
+
+  <section class="feats">
+    <div class="feat"><b data-i18n="f1t">100% no seu aparelho</b><p data-i18n="f1d">A senha é criada no seu navegador. Nada passa pela internet.</p></div>
+    <div class="feat"><b data-i18n="f2t">Sorteio de verdade</b><p data-i18n="f2d">Usa o gerador criptográfico do próprio sistema, o mesmo que protege conexões bancárias.</p></div>
+    <div class="feat"><b data-i18n="f3t">Sem cadastro, sem rastreio</b><p data-i18n="f3d">Sem anúncios, sem cookies e sem nenhum serviço de terceiros.</p></div>
+  </section>
+
+  <section class="card dl">
+    <h2 data-i18n="dlT">Leve com você</h2>
+    <p class="muted" data-i18n="dlD">Instale como aplicativo no celular ou no computador, ou baixe o arquivo para usar sem internet.</p>
+    <div class="row">
+      <button class="btn" id="installBtn" type="button" hidden data-i18n="install">Instalar aplicativo</button>
+      <a class="btn ghost" href="gerador-senhas-3rl.html" download data-i18n="download">Baixar versão offline</a>
+    </div>
+    <p class="muted small" data-i18n="ios">No iPhone: abra no Safari, toque em Compartilhar e depois em “Adicionar à Tela de Início”.</p>
+    <details>
+      <summary data-i18n="hashT">Conferir a autenticidade do arquivo</summary>
+      <p data-i18n="hashD">A impressão digital (SHA-256) do arquivo oficial é:</p>
+      <code>c51e593d7fbc3d93a3c1042f5b25374d559b6a7a0666c57fb4e65d31de3b74d0</code>
+      <p data-i18n="hashW">Windows (PowerShell): Get-FileHash gerador-senhas-3rl.html</p>
+      <p data-i18n="hashM">macOS / Linux: shasum -a 256 gerador-senhas-3rl.html</p>
+    </details>
+  </section>
+
+  <section class="card cta">
+    <div>
+      <h2 data-i18n="ctaT">Sua empresa precisa de mais segurança?</h2>
+      <p class="muted" data-i18n="ctaD">A 3RL ajuda a proteger e-mails, contas e processos da sua equipe.</p>
+    </div>
+    <a class="btn" href="https://www.3rl.com.br/#contato" data-i18n="ctaB">Fale com a 3RL</a>
+  </section>
+</main>
+
+<footer class="wrap"><span>© 2026 3RL</span><span>v1.0.0</span></footer>
+<textarea id="clipFallback" class="clip" readonly tabindex="-1" aria-hidden="true"></textarea>
+<script>(function(){
+"use strict";
+var SETS={upper:"ABCDEFGHIJKLMNOPQRSTUVWXYZ",lower:"abcdefghijklmnopqrstuvwxyz",digits:"0123456789",symbols:"!#$%&*+-=?@^_~()[]{}<>.,:;/"};
+var AMBIG="O0oIl1";
+var CLEAR_SECONDS=30;
+var GUESSES_PER_SEC=1e12;
+
+var T={
+ pt:{eyebrow:"Ferramenta gratuita",title:"Gerador de senhas seguras",sub:"Crie senhas fortes em um clique. Tudo acontece no seu aparelho: nada é enviado e nada é armazenado.",pwLabel:"Senha gerada",hide:"Ocultar",show:"Mostrar",regen:"Gerar outra",copy:"Copiar",length:"Tamanho",upper:"Maiúsculas",lower:"Minúsculas",digits:"Números",symbols:"Símbolos",ambig:"Evitar parecidos",clear:"Apagar cópia em 30 s",gen:"Gerar nova senha",f1t:"100% no seu aparelho",f1d:"A senha é criada no seu navegador. Nada passa pela internet.",f2t:"Sorteio de verdade",f2d:"Usa o gerador criptográfico do próprio sistema, o mesmo que protege conexões bancárias.",f3t:"Sem cadastro, sem rastreio",f3d:"Sem anúncios, sem cookies e sem nenhum serviço de terceiros.",dlT:"Leve com você",dlD:"Instale como aplicativo no celular ou no computador, ou baixe o arquivo para usar sem internet.",install:"Instalar aplicativo",download:"Baixar versão offline",ios:"No iPhone: abra no Safari, toque em Compartilhar e depois em “Adicionar à Tela de Início”.",hashT:"Conferir a autenticidade do arquivo",hashD:"A impressão digital (SHA-256) do arquivo oficial é:",hashW:"Windows (PowerShell): Get-FileHash gerador-senhas-3rl.html",hashM:"macOS / Linux: shasum -a 256 gerador-senhas-3rl.html",ctaT:"Sua empresa precisa de mais segurança?",ctaD:"A 3RL ajuda a proteger e-mails, contas e processos da sua equipe.",ctaB:"Fale com a 3RL",copied:"Copiada!",copiedClear:"Copiada! Será apagada em {s} s",cleared:"Área de transferência limpa",copyFail:"Não foi possível copiar. Selecione e copie manualmente.",bits:"{b} bits de entropia",weak:"Fraca",fair:"Razoável",strong:"Forte",great:"Excelente",time:"Tempo estimado para quebrar, num ataque com 1 trilhão de tentativas por segundo: {t}.",instant:"instantâneo",sec:"segundos",min:"minutos",hour:"horas",day:"dias",year:"anos",kyear:"mil anos",myear:"milhões de anos",byear:"bilhões de anos",universe:"mais que a idade do universo",langBtn:"EN",langAria:"Switch to English"},
+ en:{eyebrow:"Free tool",title:"Secure password generator",sub:"Create strong passwords in one click. Everything happens on your device: nothing is sent and nothing is stored.",pwLabel:"Generated password",hide:"Hide",show:"Show",regen:"Generate another",copy:"Copy",length:"Length",upper:"Uppercase",lower:"Lowercase",digits:"Numbers",symbols:"Symbols",ambig:"Avoid look-alikes",clear:"Clear copy after 30 s",gen:"Generate new password",f1t:"100% on your device",f1d:"The password is created in your browser. Nothing goes over the internet.",f2t:"Truly random",f2d:"Uses your system's cryptographic generator, the same one that protects banking connections.",f3t:"No sign-up, no tracking",f3d:"No ads, no cookies and no third-party services.",dlT:"Take it with you",dlD:"Install it as an app on your phone or computer, or download the file to use without internet.",install:"Install app",download:"Download offline version",ios:"On iPhone: open in Safari, tap Share, then “Add to Home Screen”.",hashT:"Verify the file's authenticity",hashD:"The fingerprint (SHA-256) of the official file is:",hashW:"Windows (PowerShell): Get-FileHash gerador-senhas-3rl.html",hashM:"macOS / Linux: shasum -a 256 gerador-senhas-3rl.html",ctaT:"Does your company need more security?",ctaD:"3RL helps protect your team's email, accounts and processes.",ctaB:"Talk to 3RL",copied:"Copied!",copiedClear:"Copied! Will be cleared in {s} s",cleared:"Clipboard cleared",copyFail:"Could not copy. Select and copy it manually.",bits:"{b} bits of entropy",weak:"Weak",fair:"Fair",strong:"Strong",great:"Excellent",time:"Estimated time to crack, in an attack making 1 trillion guesses per second: {t}.",instant:"instant",sec:"seconds",min:"minutes",hour:"hours",day:"days",year:"years",kyear:"thousand years",myear:"million years",byear:"billion years",universe:"longer than the age of the universe",langBtn:"PT",langAria:"Mudar para português"}
+};
+var FLAG_UK='<svg viewBox="0 0 60 30" aria-hidden="true"><clipPath id="u"><path d="M0 0v30h60V0z"/></clipPath><clipPath id="v"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><g clip-path="url(#u)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#v)" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></g></svg>';
+var FLAG_BR='<svg viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#009c3b"/><path d="M10 1.5 18.2 7 10 12.5 1.8 7z" fill="#ffdf00"/><circle cx="10" cy="7" r="3.1" fill="#002776"/></svg>';
+
+var $=function(id){return document.getElementById(id)};
+var el={pw:$("pw"),len:$("len"),lenNum:$("lenNum"),gen:$("genBtn"),copy:$("copyBtn"),regen:$("regenBtn"),eye:$("eyeBtn"),toast:$("toast"),bar:$("barFill"),sLabel:$("sLabel"),sBits:$("sBits"),sTime:$("sTime"),lang:$("langBtn"),clip:$("clipFallback"),install:$("installBtn")};
+var opt={upper:$("oUpper"),lower:$("oLower"),digits:$("oDigits"),symbols:$("oSymbols"),ambig:$("oAmbig"),clear:$("oClear")};
+
+var lang=/^pt/i.test(navigator.language||"pt")?"pt":"en";
+var current="",masked=false,clearTimer=null,toastTimer=null,lastStrength=null;
+
+function t(k,vars){var s=(T[lang][k]!=null?T[lang][k]:T.pt[k])||"";if(vars)for(var v in vars)s=s.split("{"+v+"}").join(vars[v]);return s}
+
+/* Uniform integer in [0,n) using rejection sampling (no modulo bias). */
+function randInt(n){
+  var lim=Math.floor(4294967296/n)*n,a=new Uint32Array(1),x;
+  do{crypto.getRandomValues(a);x=a[0]}while(x>=lim);
+  return x%n;
+}
+
+function activeSets(){
+  var out=[],strip=opt.ambig.checked;
+  ["upper","lower","digits","symbols"].forEach(function(k){
+    if(!opt[k].checked)return;
+    var s=SETS[k];
+    if(strip)s=s.split("").filter(function(c){return AMBIG.indexOf(c)<0}).join("");
+    out.push(s);
+  });
+  return out;
+}
+
+/* Draw every character uniformly from the full pool; redraw the whole
+   password until each selected group appears (keeps the result uniform
+   over all valid passwords). */
+function generate(){
+  var sets=activeSets(),pool=sets.join(""),n=clampLen(el.len.value),pw,i,tries=0;
+  do{
+    pw="";
+    for(i=0;i<n;i++)pw+=pool.charAt(randInt(pool.length));
+    tries++;
+  }while(tries<10000&&!sets.every(function(s){for(var j=0;j<pw.length;j++)if(s.indexOf(pw.charAt(j))>=0)return true;return false}));
+  current=pw;
+  render();
+  strength(n,pool.length);
+}
+
+function render(){
+  var pw=el.pw;pw.textContent="";
+  if(masked){pw.textContent=current.replace(/./g,"•");return}
+  for(var i=0;i<current.length;i++){
+    var c=current.charAt(i),sp=document.createElement("span");
+    sp.textContent=c;
+    if(/[0-9]/.test(c))sp.className="d";else if(!/[A-Za-z]/.test(c))sp.className="s";
+    pw.appendChild(sp);
+  }
+}
+
+function strength(n,poolSize){
+  var bits=n*Math.log2(poolSize);
+  var lvl=bits<50?"weak":bits<70?"fair":bits<100?"strong":"great";
+  var colors={weak:"#f87171",fair:"#fbbf24",strong:"#22d3b6",great:"linear-gradient(90deg,#22d3b6,#6366f1)"};
+  el.bar.style.width=Math.min(100,bits/128*100).toFixed(1)+"%";
+  el.bar.style.background=colors[lvl];
+  el.sLabel.textContent=t(lvl);
+  el.sLabel.style.color=lvl==="great"?"#a5b4fc":colors[lvl];
+  el.sBits.textContent=t("bits",{b:Math.floor(bits)});
+  el.sTime.textContent=t("time",{t:crackTime(bits)});
+  lastStrength=[n,poolSize];
+}
+
+function crackTime(bits){
+  var secs=Math.pow(2,bits-1)/GUESSES_PER_SEC,y=secs/31557600;
+  var fmt=function(v,u){return(v<10?v.toFixed(1):Math.round(v).toLocaleString(lang==="pt"?"pt-BR":"en-US"))+" "+t(u)};
+  if(secs<1)return t("instant");
+  if(secs<60)return fmt(secs,"sec");
+  if(secs<3600)return fmt(secs/60,"min");
+  if(secs<86400)return fmt(secs/3600,"hour");
+  if(y<1)return fmt(secs/86400,"day");
+  if(y<1e3)return fmt(y,"year");
+  if(y<1e6)return fmt(y/1e3,"kyear");
+  if(y<1e9)return fmt(y/1e6,"myear");
+  if(y<1.38e10)return fmt(y/1e9,"byear");
+  return t("universe");
+}
+
+function clampLen(v){v=parseInt(v,10);if(isNaN(v))v=20;return Math.max(8,Math.min(64,v))}
+
+function toast(msg,ms){
+  el.toast.textContent=msg;el.toast.classList.add("on");
+  clearTimeout(toastTimer);toastTimer=setTimeout(function(){el.toast.classList.remove("on")},ms||1800);
+}
+
+function fallbackCopy(text){
+  el.clip.value=text;el.clip.select();
+  var ok=false;try{ok=document.execCommand("copy")}catch(e){}
+  el.clip.value="";el.clip.blur();
+  return ok;
+}
+
+function writeClip(text){
+  if(navigator.clipboard&&window.isSecureContext){
+    return navigator.clipboard.writeText(text).then(function(){return true},function(){return fallbackCopy(text)});
+  }
+  return Promise.resolve(fallbackCopy(text));
+}
+
+function copy(){
+  if(!current)return;
+  writeClip(current).then(function(ok){
+    if(!ok){toast(t("copyFail"),3500);return}
+    clearTimeout(clearTimer);
+    if(opt.clear.checked){
+      toast(t("copiedClear",{s:CLEAR_SECONDS}),2400);
+      clearTimer=setTimeout(function(){
+        writeClip("").then(function(ok){if(ok)toast(t("cleared"))});
+      },CLEAR_SECONDS*1000);
+    }else toast(t("copied"));
+  });
+}
+
+function setMask(m){
+  masked=m;
+  el.eye.classList.toggle("hidden",m);
+  el.eye.setAttribute("aria-label",t(m?"show":"hide"));
+  el.eye.setAttribute("data-i18n-aria",m?"show":"hide");
+  render();
+}
+
+function applyLang(){
+  document.documentElement.lang=lang==="pt"?"pt-BR":"en";
+  document.querySelectorAll("[data-i18n]").forEach(function(n){var k=n.getAttribute("data-i18n");if(T.pt[k]!=null)n.textContent=t(k)});
+  document.querySelectorAll("[data-i18n-aria]").forEach(function(n){n.setAttribute("aria-label",t(n.getAttribute("data-i18n-aria")))});
+  el.lang.innerHTML=(lang==="pt"?FLAG_UK:FLAG_BR)+"<span>"+t("langBtn")+"</span>";
+  el.lang.setAttribute("aria-label",t("langAria"));
+  if(lastStrength)strength(lastStrength[0],lastStrength[1]);
+}
+
+/* Events */
+el.len.addEventListener("input",function(){el.lenNum.value=el.len.value;generate()});
+el.lenNum.addEventListener("change",function(){var v=clampLen(el.lenNum.value);el.lenNum.value=v;el.len.value=v;generate()});
+["upper","lower","digits","symbols"].forEach(function(k){
+  opt[k].addEventListener("change",function(){
+    if(!opt.upper.checked&&!opt.lower.checked&&!opt.digits.checked&&!opt.symbols.checked)opt[k].checked=true;
+    generate();
+  });
+});
+opt.ambig.addEventListener("change",generate);
+el.gen.addEventListener("click",generate);
+el.regen.addEventListener("click",generate);
+el.copy.addEventListener("click",copy);
+el.eye.addEventListener("click",function(){setMask(!masked)});
+el.lang.addEventListener("click",function(){lang=lang==="pt"?"en":"pt";applyLang()});
+
+/* App install (site version only) */
+if(el.install){
+  var deferred=null;
+  window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();deferred=e;el.install.hidden=false});
+  el.install.addEventListener("click",function(){
+    if(!deferred)return;
+    deferred.prompt();
+    deferred.userChoice.then(function(){deferred=null;el.install.hidden=true});
+  });
+  window.addEventListener("appinstalled",function(){el.install.hidden=true});
+  if("serviceWorker" in navigator&&location.protocol==="https:"){
+    navigator.serviceWorker.register("sw.js").catch(function(){});
+  }
+}
+
+applyLang();
+generate();
+})();</script>
+</body>
+</html>
