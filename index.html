@@ -164,6 +164,14 @@
   .vform .btn{padding:14px 26px}
   .vform .btn[disabled]{opacity:.6;cursor:wait;transform:none}
   .vhint{color:var(--muted);font-size:.8rem;margin-top:12px}
+  .toolcard{display:flex;align-items:center;gap:20px;margin-top:18px;padding:24px 28px;border-radius:var(--radius);border:1px solid var(--line);background:var(--glass);text-decoration:none;transition:background .2s,transform .2s}
+  .toolcard:hover{background:var(--glass2);transform:translateY(-2px)}
+  .toolcard .tic{width:52px;height:52px;flex-shrink:0;border-radius:14px;background:var(--grad);display:grid;place-items:center;color:#04121f}
+  .toolcard .tic svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  .toolcard h3{font-size:1.15rem;margin-bottom:2px}
+  .toolcard p{color:var(--muted);font-size:.92rem}
+  .toolcard .go{margin-left:auto;font-weight:600;white-space:nowrap;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  @media (max-width:560px){.toolcard{flex-wrap:wrap;padding:22px}.toolcard .go{margin-left:0}}
   .vout{margin-top:28px}
   .vout:empty{display:none}
   .verdict{display:flex;align-items:center;gap:16px;padding:20px 22px;border-radius:18px;margin-bottom:16px;border:1px solid var(--line)}
@@ -358,6 +366,11 @@
       <p class="vhint" data-i18n="vHint">Consultamos apenas registros públicos. Nada é armazenado.</p>
       <div class="vout" id="vOut" aria-live="polite"></div>
     </div>
+    <a class="toolcard reveal" href="/senhas/">
+      <span class="tic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+      <div><h3 data-i18n="pwT">Gerador de senhas seguras</h3><p data-i18n="pwD">Senhas fortes em um clique, criadas no seu aparelho. Grátis, sem cadastro e funciona offline.</p></div>
+      <span class="go" data-i18n="pwB">Abrir gerador →</span>
+    </a>
   </section>
 
   <section id="calculadora">
@@ -456,7 +469,7 @@
       k4t:"Management Dashboard", k4d:"Your business's key numbers in one place.", k4i1:"Definition of key indicators", k4i2:"Integration of data sources", k4i3:"Always up-to-date visual dashboard", k4i4:"Access from computer and phone",
       k5t:"Privacy & LGPD", k5d:"Data protection best practices to operate more safely.", k5i1:"Mapping of personal data processed", k5i2:"Privacy policy for the website", k5i3:"Security and access best practices", k5i4:"Team guidance",
       vEyebrow:"Free tool", vTitle:"Is your company's email protected?", vSub:"Enter your domain and see in seconds whether it has the protections that stop scammers from sending fake emails in your company's name.",
-      vBtn:"Check now", vHint:"We only check public records. Nothing is stored.",
+      vBtn:"Check now", vHint:"We only check public records. Nothing is stored.", pwT:"Secure password generator", pwD:"Strong passwords in one click, created on your device. Free, no sign-up, works offline.", pwB:"Open generator →",
       calcEyebrow:"Calculator", calcTitle:"What do manual tasks cost you?", calcSub:"Find out how much time and money your team spends on repetitive tasks, the kind that could be automated.",
       fPeople:"People on the team", fHours:"Hours per week, per person, on repetitive tasks", fHoursHint:"E.g. copying data between systems, building reports, checking spreadsheets, answering standard emails.",
       fCost:"Average cost of one work hour", fCostHint:"Include salary and overhead. If unsure, use a rough figure.", fAuto:"Share you believe could be automated",
