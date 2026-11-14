@@ -348,14 +348,14 @@
     <div class="reveal" style="margin-bottom:40px">
       <div class="eyebrow" data-i18n="vEyebrow">Ferramenta gratuita</div>
       <h2 data-i18n="vTitle">O e-mail da sua empresa está protegido?</h2>
-      <p class="sub" data-i18n="vSub">Digite o domínio e veja em segundos se ele tem SPF, DKIM e DMARC, as proteções que impedem golpistas de enviar e-mails falsos em nome da sua empresa.</p>
+      <p class="sub" data-i18n="vSub">Digite o domínio e veja em segundos se ele tem as proteções que impedem golpistas de enviar e-mails falsos em nome da sua empresa.</p>
     </div>
     <div class="checker reveal">
       <form class="vform" id="vForm" novalidate>
         <input id="vDomain" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="suaempresa.com.br" aria-label="Domínio">
         <button class="btn" id="vBtn" type="submit" data-i18n="vBtn">Verificar agora</button>
       </form>
-      <p class="vhint" data-i18n="vHint">Consultamos apenas registros públicos de DNS (via Google Public DNS). Nada é armazenado.</p>
+      <p class="vhint" data-i18n="vHint">Consultamos apenas registros públicos. Nada é armazenado.</p>
       <div class="vout" id="vOut" aria-live="polite"></div>
     </div>
   </section>
@@ -455,8 +455,8 @@
       k3t:"Essential Automation", k3d:"One manual routine turned into a reliable automated workflow.", k3i1:"Mapping of the current process", k3i2:"Automation of spreadsheets, reports or alerts", k3i3:"Testing and documentation", k3i4:"Follow-up after delivery",
       k4t:"Management Dashboard", k4d:"Your business's key numbers in one place.", k4i1:"Definition of key indicators", k4i2:"Integration of data sources", k4i3:"Always up-to-date visual dashboard", k4i4:"Access from computer and phone",
       k5t:"Privacy & LGPD", k5d:"Data protection best practices to operate more safely.", k5i1:"Mapping of personal data processed", k5i2:"Privacy policy for the website", k5i3:"Security and access best practices", k5i4:"Team guidance",
-      vEyebrow:"Free tool", vTitle:"Is your company's email protected?", vSub:"Enter your domain and see in seconds whether it has SPF, DKIM and DMARC, the protections that stop scammers from sending fake emails in your company's name.",
-      vBtn:"Check now", vHint:"We only query public DNS records (via Google Public DNS). Nothing is stored.",
+      vEyebrow:"Free tool", vTitle:"Is your company's email protected?", vSub:"Enter your domain and see in seconds whether it has the protections that stop scammers from sending fake emails in your company's name.",
+      vBtn:"Check now", vHint:"We only check public records. Nothing is stored.",
       calcEyebrow:"Calculator", calcTitle:"What do manual tasks cost you?", calcSub:"Find out how much time and money your team spends on repetitive tasks, the kind that could be automated.",
       fPeople:"People on the team", fHours:"Hours per week, per person, on repetitive tasks", fHoursHint:"E.g. copying data between systems, building reports, checking spreadsheets, answering standard emails.",
       fCost:"Average cost of one work hour", fCostHint:"Include salary and overhead. If unsure, use a rough figure.", fAuto:"Share you believe could be automated",
@@ -581,18 +581,18 @@
     let last=null;
     const L={
       pt:{
-        mx_ok:p=>["Recebimento de e-mail",p?`Servidor identificado: ${p}.`:"Servidores de e-mail (MX) encontrados."],
-        mx_none:["Recebimento de e-mail","Nenhum servidor de e-mail (MX) encontrado para este domínio."],
-        spf_good:["SPF configurado","Define quais servidores podem enviar e-mails em nome do domínio."],
-        spf_all:["SPF permissivo","O registro termina em “+all” ou “?all”, o que na prática libera qualquer servidor."],
-        spf_noall:["SPF incompleto","Falta a regra final (“~all” ou “-all”) no registro."],
-        spf_multi:["SPF duplicado","Há mais de um registro SPF, o que invalida a verificação."],
-        spf_none:["SPF ausente","Qualquer servidor pode tentar enviar e-mails em nome do domínio."],
-        dkim_good:s=>["DKIM encontrado",`Assinatura digital localizada (seletor: ${s}).`],
-        dkim_unk:["DKIM não localizado","Não encontramos a assinatura nos seletores mais comuns. Ela pode existir com outro nome: vale uma verificação mais detalhada."],
-        dmarc_good:p=>["DMARC ativo",`Política “${p}”: e-mails falsos são bloqueados ou vão para o spam.`],
-        dmarc_none:["DMARC só monitora","Política “none”: o domínio recebe relatórios, mas e-mails falsos ainda chegam ao destinatário."],
-        dmarc_miss:["DMARC ausente","Os provedores não recebem instruções sobre o que fazer com e-mails falsos."],
+        mx_ok:p=>["Recebimento de e-mail",p?`Provedor identificado: ${p}.`:"Servidores de e-mail encontrados."],
+        mx_none:["Recebimento de e-mail","Nenhum servidor de e-mail encontrado para este domínio."],
+        spf_good:["Autorização de envio ativa","O domínio define quais servidores podem enviar e-mails em seu nome."],
+        spf_all:["Autorização de envio permissiva","A configuração atual libera qualquer servidor para enviar e-mails em nome do domínio."],
+        spf_noall:["Autorização de envio incompleta","A configuração não define o que fazer com servidores não autorizados."],
+        spf_multi:["Autorização de envio em conflito","Há configurações duplicadas, o que invalida a proteção."],
+        spf_none:["Autorização de envio ausente","Qualquer servidor pode tentar enviar e-mails em nome do domínio."],
+        dkim_good:s=>["Assinatura digital ativa","Os e-mails do domínio saem com assinatura digital."],
+        dkim_unk:["Assinatura digital não confirmada","Não conseguimos confirmar a assinatura digital dos e-mails. Vale uma verificação mais detalhada."],
+        dmarc_good:p=>["Bloqueio de e-mails falsos ativo","E-mails falsos em nome do domínio são bloqueados ou vão para o spam."],
+        dmarc_none:["Bloqueio de e-mails falsos desligado","O domínio apenas monitora: e-mails falsos ainda chegam ao destinatário."],
+        dmarc_miss:["Bloqueio de e-mails falsos ausente","Os provedores não sabem o que fazer com e-mails falsos em nome do domínio."],
         v_good:["Bem protegido","O domínio tem as três proteções principais ativas."],
         v_warn:["Proteção parcial","Existem pontos que deixam brechas para e-mails falsos."],
         v_bad:["Vulnerável a falsificação","Golpistas podem enviar e-mails se passando pela empresa."],
@@ -600,24 +600,24 @@
         cta_ok:"Tudo certo por aqui. Quer revisar outras áreas de tecnologia da empresa?",
         btn_fix:"Quero corrigir", btn_ok:"Falar com a 3RL",
         bad_domain:"Digite um domínio válido, por exemplo: suaempresa.com.br",
-        nx:"Este domínio não existe ou não tem DNS publicado.",
-        err:"Não foi possível consultar o DNS agora. Tente novamente em instantes.",
+        nx:"Este domínio não existe ou não está publicado.",
+        err:"Não foi possível fazer a verificação agora. Tente novamente em instantes.",
         checking:"Verificando…", subj:"Verificação de e-mail - ",
         body:(d,r)=>`Olá! Usei o verificador de e-mail do site da 3RL.\n\nDomínio: ${d}\n${r}\n\nGostaria de ajuda para corrigir.`
       },
       en:{
-        mx_ok:p=>["Incoming email",p?`Provider detected: ${p}.`:"Mail servers (MX) found."],
-        mx_none:["Incoming email","No mail server (MX) found for this domain."],
-        spf_good:["SPF configured","Defines which servers may send email on behalf of the domain."],
-        spf_all:["Permissive SPF","The record ends in “+all” or “?all”, which effectively allows any server."],
-        spf_noall:["Incomplete SPF","The record is missing a final rule (“~all” or “-all”)."],
-        spf_multi:["Duplicate SPF","There is more than one SPF record, which breaks validation."],
-        spf_none:["SPF missing","Any server can try to send email on behalf of the domain."],
-        dkim_good:s=>["DKIM found",`Digital signature located (selector: ${s}).`],
-        dkim_unk:["DKIM not located","We did not find a signature under the most common selectors. It may exist under another name and is worth a closer look."],
-        dmarc_good:p=>["DMARC active",`Policy “${p}”: fake emails are blocked or sent to spam.`],
-        dmarc_none:["DMARC monitoring only","Policy “none”: the domain gets reports, but fake emails still reach recipients."],
-        dmarc_miss:["DMARC missing","Mail providers get no instructions on what to do with fake emails."],
+        mx_ok:p=>["Incoming email",p?`Provider detected: ${p}.`:"Mail servers found."],
+        mx_none:["Incoming email","No mail server found for this domain."],
+        spf_good:["Sender authorization active","The domain defines which servers may send email on its behalf."],
+        spf_all:["Permissive sender authorization","The current setup lets any server send email on behalf of the domain."],
+        spf_noall:["Incomplete sender authorization","The setup does not say what to do with unauthorized servers."],
+        spf_multi:["Conflicting sender authorization","Duplicate settings cancel out the protection."],
+        spf_none:["Sender authorization missing","Any server can try to send email on behalf of the domain."],
+        dkim_good:s=>["Digital signature active","Emails from the domain are digitally signed."],
+        dkim_unk:["Digital signature not confirmed","We could not confirm a digital signature on the emails. It is worth a closer look."],
+        dmarc_good:p=>["Fake email blocking active","Fake emails using the domain are blocked or sent to spam."],
+        dmarc_none:["Fake email blocking off","The domain only monitors: fake emails still reach recipients."],
+        dmarc_miss:["Fake email blocking missing","Mail providers do not know what to do with fake emails using the domain."],
         v_good:["Well protected","The domain has all three main protections active."],
         v_warn:["Partially protected","There are gaps that let fake emails through."],
         v_bad:["Open to spoofing","Scammers can send emails pretending to be the company."],
@@ -625,8 +625,8 @@
         cta_ok:"All good here. Want to review other technology areas of your company?",
         btn_fix:"Fix it for me", btn_ok:"Talk to 3RL",
         bad_domain:"Enter a valid domain, e.g. yourcompany.com",
-        nx:"This domain does not exist or has no published DNS.",
-        err:"Could not query DNS right now. Please try again shortly.",
+        nx:"This domain does not exist or is not published.",
+        err:"The check could not be completed right now. Please try again shortly.",
         checking:"Checking…", subj:"Email check - ",
         body:(d,r)=>`Hello! I used the email checker on the 3RL website.\n\nDomain: ${d}\n${r}\n\nI would like help fixing it.`
       }
@@ -649,7 +649,7 @@
       const href="mailto:adm@3rl.com.br?subject="+encodeURIComponent(T.subj+r.domain)+"&body="+encodeURIComponent(T.body(r.domain,resumo));
       $("vOut").innerHTML=
         `<div class="verdict v-${r.verdict}"><div class="vi">${ICON[r.verdict]}</div><div><h3>${esc(v[0])} · ${esc(r.domain)}</h3><p>${esc(v[1])}</p></div></div>`+
-        `<div class="vrows">`+rows.map(x=>`<div class="vrow s-${x.st}"><div class="dot2">${ICON[x.st]}</div><div><b>${esc(x.t)}</b><span>${esc(x.d)}</span>${x.code?`<code>${esc(x.code)}</code>`:""}</div></div>`).join("")+`</div>`+
+        `<div class="vrows">`+rows.map(x=>`<div class="vrow s-${x.st}"><div class="dot2">${ICON[x.st]}</div><div><b>${esc(x.t)}</b><span>${esc(x.d)}</span></div></div>`).join("")+`</div>`+
         `<div class="vcta"><p>${esc(r.verdict==="good"?T.cta_ok:T.cta_fix)}</p><a class="btn" href="${href}">${esc(r.verdict==="good"?T.btn_ok:T.btn_fix)}</a></div>`;
     };
     async function check(domain){
