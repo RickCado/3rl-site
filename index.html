@@ -144,6 +144,48 @@
   .note{color:var(--muted);font-size:.78rem;margin-top:16px}
   @media (max-width:900px){.calc{grid-template-columns:1fr}.panel{padding:26px}}
 
+  .packs{display:flex;flex-wrap:wrap;justify-content:center;gap:22px}
+  .pack{flex:1 1 320px;max-width:370px;display:flex;flex-direction:column;border-radius:var(--radius);padding:30px;border:1px solid var(--line);background:linear-gradient(165deg,rgba(255,255,255,.07),rgba(255,255,255,.015));transition:transform .3s,border-color .3s}
+  .pack:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.2)}
+  .pack.feat{border-color:rgba(34,211,182,.5);background:linear-gradient(165deg,rgba(34,211,182,.13),rgba(99,102,241,.08))}
+  .pack .badge{align-self:flex-start;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#04121f;background:var(--grad);border-radius:999px;padding:4px 10px;margin-bottom:14px}
+  .pack h3{font-size:1.35rem;margin-bottom:8px}
+  .pack > p{color:var(--muted);font-size:.93rem;margin-bottom:18px}
+  .pack ul{list-style:none;display:grid;gap:9px;margin-bottom:24px}
+  .pack li{display:flex;gap:10px;font-size:.9rem}
+  .pack li::before{content:"✓";color:var(--c1);font-weight:700}
+  .pack .foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:18px;border-top:1px solid var(--line)}
+  .pack .price{font-family:var(--display);font-weight:600;color:var(--muted);font-size:.95rem}
+
+  .checker{border-radius:var(--radius);padding:34px;border:1px solid var(--line);background:linear-gradient(165deg,rgba(255,255,255,.07),rgba(255,255,255,.015))}
+  .vform{display:flex;gap:12px;flex-wrap:wrap}
+  .vform input{flex:1 1 260px;min-width:0;background:rgba(7,15,28,.6);border:1px solid var(--line);border-radius:999px;padding:14px 22px;color:var(--ink);font:500 1rem "Inter",sans-serif;outline:none;transition:border-color .2s}
+  .vform input:focus{border-color:var(--c2)}
+  .vform .btn{padding:14px 26px}
+  .vform .btn[disabled]{opacity:.6;cursor:wait;transform:none}
+  .vhint{color:var(--muted);font-size:.8rem;margin-top:12px}
+  .vout{margin-top:28px}
+  .vout:empty{display:none}
+  .verdict{display:flex;align-items:center;gap:16px;padding:20px 22px;border-radius:18px;margin-bottom:16px;border:1px solid var(--line)}
+  .verdict .vi{width:46px;height:46px;flex:none;border-radius:14px;display:grid;place-items:center;font-size:1.3rem;font-weight:700;color:#04121f}
+  .verdict h3{font-size:1.25rem}
+  .verdict p{color:var(--muted);font-size:.9rem}
+  .v-good{background:rgba(34,211,182,.1);border-color:rgba(34,211,182,.4)}.v-good .vi{background:#22d3b6}
+  .v-warn{background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.4)}.v-warn .vi{background:#fbbf24}
+  .v-bad{background:rgba(248,113,113,.08);border-color:rgba(248,113,113,.45)}.v-bad .vi{background:#f87171}
+  .vrows{display:grid;gap:10px}
+  .vrow{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:14px;background:rgba(7,15,28,.45);border:1px solid var(--line)}
+  .vrow .dot2{width:28px;height:28px;flex:none;border-radius:50%;display:grid;place-items:center;font-size:.85rem;font-weight:700;color:#04121f;margin-top:2px}
+  .s-good .dot2{background:#22d3b6}.s-warn .dot2{background:#fbbf24}.s-bad .dot2{background:#f87171}.s-unk .dot2,.s-info .dot2{background:#93a4b8}
+  .vrow b{display:block;font-size:.98rem}
+  .vrow span{color:var(--muted);font-size:.88rem;display:block}
+  .vrow code{display:block;margin-top:6px;font:.76rem/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#b8c7d9;background:rgba(255,255,255,.04);border-radius:8px;padding:6px 9px;word-break:break-all;max-height:4.4em;overflow:hidden}
+  .vcta{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:20px}
+  .vcta p{color:var(--muted);font-size:.9rem;max-width:520px}
+  .spin{display:inline-block;width:16px;height:16px;border:2px solid rgba(4,18,31,.3);border-top-color:#04121f;border-radius:50%;animation:sp .8s linear infinite}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  @media (max-width:560px){.checker{padding:24px}.vform .btn{width:100%;justify-content:center}}
+
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .step{padding:30px;border-radius:var(--radius);background:var(--glass);border:1px solid var(--line)}
   .step b{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:14px;background:var(--grad);color:#04121f;font-family:var(--display);font-size:1.05rem;margin-bottom:18px}
@@ -184,8 +226,8 @@
     <a href="#" class="logo" aria-label="3RL"><i></i><span>3<b>RL</b></span></a>
     <div class="links">
       <a href="#servicos" data-i18n="nav1">Serviços</a>
-      <a href="#calculadora" data-i18n="navCalc">Calculadora</a>
-      <a href="#como" data-i18n="nav2">Como trabalhamos</a>
+      <a href="#solucoes" data-i18n="navPacks">Soluções</a>
+      <a href="#verificador" data-i18n="navTools">Ferramentas</a>
       <a href="#contato" data-i18n="nav3">Contato</a>
     </div>
     <div class="nav-right">
@@ -260,6 +302,62 @@
       </div>
     </div>
     <div class="dots" id="dots"></div>
+  </section>
+
+  <section id="solucoes">
+    <div class="reveal" style="margin-bottom:40px">
+      <div class="eyebrow" data-i18n="packsEyebrow">Soluções</div>
+      <h2 data-i18n="packsTitle">Pacotes prontos para começar</h2>
+      <p class="sub" data-i18n="packsSub">Escopos claros, para você saber exatamente o que vai receber. Cada pacote é ajustado à realidade do seu negócio.</p>
+    </div>
+    <div class="packs reveal">
+        <article class="pack feat">
+          <span class="badge" data-i18n="k1badge">Ponto de partida</span><h3 data-i18n="k1t">Presença Digital</h3>
+          <p data-i18n="k1d">Tudo para a sua empresa aparecer de forma profissional na internet.</p>
+          <ul><li data-i18n="k1i1">Registro e configuração de domínio</li><li data-i18n="k1i2">E-mail corporativo com SPF, DKIM e DMARC</li><li data-i18n="k1i3">Site institucional responsivo, em português e inglês</li><li data-i18n="k1i4">Cadastro no Google Search Console</li></ul>
+          <div class="foot"><span class="price" data-i18n="price">Sob consulta</span><a class="btn small" data-pack="k1" href="mailto:adm@3rl.com.br" data-i18n="packBtn">Solicitar orçamento</a></div>
+        </article>
+        <article class="pack">
+          <h3 data-i18n="k2t">E-mail Seguro</h3>
+          <p data-i18n="k2d">Proteja a sua marca contra e-mails falsos e golpes que usam o nome da empresa.</p>
+          <ul><li data-i18n="k2i1">Auditoria de SPF, DKIM e DMARC</li><li data-i18n="k2i2">Correção dos registros de DNS</li><li data-i18n="k2i3">Verificação em duas etapas nas contas</li><li data-i18n="k2i4">Orientação para a equipe</li></ul>
+          <div class="foot"><span class="price" data-i18n="price">Sob consulta</span><a class="btn small" data-pack="k2" href="mailto:adm@3rl.com.br" data-i18n="packBtn">Solicitar orçamento</a></div>
+        </article>
+        <article class="pack">
+          <h3 data-i18n="k3t">Automação Essencial</h3>
+          <p data-i18n="k3d">Uma rotina manual transformada em um fluxo automático e confiável.</p>
+          <ul><li data-i18n="k3i1">Mapeamento do processo atual</li><li data-i18n="k3i2">Automação de planilhas, relatórios ou alertas</li><li data-i18n="k3i3">Testes e documentação</li><li data-i18n="k3i4">Acompanhamento após a entrega</li></ul>
+          <div class="foot"><span class="price" data-i18n="price">Sob consulta</span><a class="btn small" data-pack="k3" href="mailto:adm@3rl.com.br" data-i18n="packBtn">Solicitar orçamento</a></div>
+        </article>
+        <article class="pack">
+          <h3 data-i18n="k4t">Painel de Gestão</h3>
+          <p data-i18n="k4d">Os números mais importantes do negócio reunidos em um só lugar.</p>
+          <ul><li data-i18n="k4i1">Definição dos indicadores</li><li data-i18n="k4i2">Integração das fontes de dados</li><li data-i18n="k4i3">Painel visual sempre atualizado</li><li data-i18n="k4i4">Acesso pelo computador e pelo celular</li></ul>
+          <div class="foot"><span class="price" data-i18n="price">Sob consulta</span><a class="btn small" data-pack="k4" href="mailto:adm@3rl.com.br" data-i18n="packBtn">Solicitar orçamento</a></div>
+        </article>
+        <article class="pack">
+          <h3 data-i18n="k5t">Privacidade e LGPD</h3>
+          <p data-i18n="k5d">Boas práticas de proteção de dados para operar com mais segurança.</p>
+          <ul><li data-i18n="k5i1">Mapeamento dos dados pessoais tratados</li><li data-i18n="k5i2">Política de privacidade para o site</li><li data-i18n="k5i3">Boas práticas de segurança e acesso</li><li data-i18n="k5i4">Orientação para a equipe</li></ul>
+          <div class="foot"><span class="price" data-i18n="price">Sob consulta</span><a class="btn small" data-pack="k5" href="mailto:adm@3rl.com.br" data-i18n="packBtn">Solicitar orçamento</a></div>
+        </article>
+    </div>
+  </section>
+
+  <section id="verificador">
+    <div class="reveal" style="margin-bottom:40px">
+      <div class="eyebrow" data-i18n="vEyebrow">Ferramenta gratuita</div>
+      <h2 data-i18n="vTitle">O e-mail da sua empresa está protegido?</h2>
+      <p class="sub" data-i18n="vSub">Digite o domínio e veja em segundos se ele tem SPF, DKIM e DMARC, as proteções que impedem golpistas de enviar e-mails falsos em nome da sua empresa.</p>
+    </div>
+    <div class="checker reveal">
+      <form class="vform" id="vForm" novalidate>
+        <input id="vDomain" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="suaempresa.com.br" aria-label="Domínio">
+        <button class="btn" id="vBtn" type="submit" data-i18n="vBtn">Verificar agora</button>
+      </form>
+      <p class="vhint" data-i18n="vHint">Consultamos apenas registros públicos de DNS (via Google Public DNS). Nada é armazenado.</p>
+      <div class="vout" id="vOut" aria-live="polite"></div>
+    </div>
   </section>
 
   <section id="calculadora">
@@ -349,7 +447,16 @@
 
   const T = {
     en: {
-      nav1:"Services", navCalc:"Calculator", nav2:"How we work", nav3:"Contact",
+      nav1:"Services", navCalc:"Calculator", navPacks:"Solutions", navTools:"Tools", nav2:"How we work", nav3:"Contact",
+      packsEyebrow:"Solutions", packsTitle:"Ready-to-start packages", packsSub:"Clear scopes, so you know exactly what you will get. Each package is tailored to your business.",
+      price:"Custom quote", packBtn:"Request a quote", k1badge:"Starting point",
+      k1t:"Digital Presence", k1d:"Everything your company needs to look professional online.", k1i1:"Domain registration and setup", k1i2:"Business email with SPF, DKIM and DMARC", k1i3:"Responsive company website in Portuguese and English", k1i4:"Google Search Console setup",
+      k2t:"Secure Email", k2d:"Protect your brand from fake emails and scams that use your company's name.", k2i1:"SPF, DKIM and DMARC audit", k2i2:"DNS record fixes", k2i3:"Two-step verification on accounts", k2i4:"Team guidance",
+      k3t:"Essential Automation", k3d:"One manual routine turned into a reliable automated workflow.", k3i1:"Mapping of the current process", k3i2:"Automation of spreadsheets, reports or alerts", k3i3:"Testing and documentation", k3i4:"Follow-up after delivery",
+      k4t:"Management Dashboard", k4d:"Your business's key numbers in one place.", k4i1:"Definition of key indicators", k4i2:"Integration of data sources", k4i3:"Always up-to-date visual dashboard", k4i4:"Access from computer and phone",
+      k5t:"Privacy & LGPD", k5d:"Data protection best practices to operate more safely.", k5i1:"Mapping of personal data processed", k5i2:"Privacy policy for the website", k5i3:"Security and access best practices", k5i4:"Team guidance",
+      vEyebrow:"Free tool", vTitle:"Is your company's email protected?", vSub:"Enter your domain and see in seconds whether it has SPF, DKIM and DMARC, the protections that stop scammers from sending fake emails in your company's name.",
+      vBtn:"Check now", vHint:"We only query public DNS records (via Google Public DNS). Nothing is stored.",
       calcEyebrow:"Calculator", calcTitle:"What do manual tasks cost you?", calcSub:"Find out how much time and money your team spends on repetitive tasks, the kind that could be automated.",
       fPeople:"People on the team", fHours:"Hours per week, per person, on repetitive tasks", fHoursHint:"E.g. copying data between systems, building reports, checking spreadsheets, answering standard emails.",
       fCost:"Average cost of one work hour", fCostHint:"Include salary and overhead. If unsure, use a rough figure.", fAuto:"Share you believe could be automated",
@@ -394,6 +501,8 @@
     langBtn.setAttribute("aria-label", l==="pt" ? "Switch to English" : "Mudar para português");
     try{localStorage.setItem("lang",l)}catch(e){}
     if(window.calc) window.calc();
+    if(window.vRender) window.vRender();
+    if(window.packLinks) window.packLinks();
   }
   langBtn.addEventListener("click",()=>apply(lang==="pt"?"en":"pt"));
   langBtn.innerHTML = FLAG_UK+"EN";
@@ -439,6 +548,146 @@
   track.addEventListener("touchend",()=>{ setTimeout(()=>paused=false,4000); },{passive:true});
   buildDots(); restart();
 
+
+
+  // pacotes: link de orçamento
+  window.packLinks=function(){
+    document.querySelectorAll("[data-pack]").forEach(a=>{
+      const name=document.querySelector(`[data-i18n="${a.dataset.pack}t"]`).textContent;
+      const en=lang==="en";
+      a.href="mailto:adm@3rl.com.br?subject="+encodeURIComponent((en?"Quote - ":"Orçamento - ")+name)+"&body="+encodeURIComponent(en?`Hello! I would like a quote for the "${name}" package.\n\nCompany:\nWebsite/domain:\nDetails:`:`Olá! Gostaria de um orçamento do pacote "${name}".\n\nEmpresa:\nSite/domínio:\nDetalhes:`);
+    });
+  };
+  window.packLinks();
+
+  // verificador de e-mail
+  (function(){
+    const $=id=>document.getElementById(id);
+    const SEL=["google","default","selector1","selector2","zmail","k1","k2","k3","s1","s2","dkim","mail","smtp","mx","sig1","titan1","hostinger","locaweb","kinghost","umbler","mandrill","mailjet","sendgrid","s1024","everlytickey1","protonmail","fm1","dkim1","key1"];
+    async function dns(name,type){
+      const urls=["https://dns.google/resolve?name="+encodeURIComponent(name)+"&type="+type,"https://cloudflare-dns.com/dns-query?name="+encodeURIComponent(name)+"&type="+type];
+      for(const u of urls){ try{ const r=await fetch(u,{headers:{accept:"application/dns-json"}}); if(r.ok) return await r.json(); }catch(e){} }
+      throw new Error("dns");
+    }
+    const txts=j=>(j.Answer||[]).filter(a=>a.type===16).map(a=>{const m=String(a.data).match(/"((?:[^"\\]|\\.)*)"/g);return m?m.map(x=>x.slice(1,-1)).join(""):String(a.data);});
+    function clean(v){
+      v=(v||"").trim().toLowerCase();
+      if(v.includes("@")) v=v.split("@").pop();
+      v=v.replace(/^[a-z]+:\/\//,"").split(/[\/?#:\s]/)[0].replace(/\.$/,"");
+      if(v.startsWith("www.")) v=v.slice(4);
+      return /^(?=.{4,253}$)([a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}$/.test(v)?v:null;
+    }
+    const PROV=[[/google|googlemail/,"Google Workspace"],[/outlook\.com|office365|protection\.outlook/,"Microsoft 365"],[/zoho/,"Zoho Mail"],[/titan\.email/,"Titan"],[/locaweb/,"Locaweb"],[/hostinger/,"Hostinger"],[/kinghost/,"KingHost"],[/umbler/,"Umbler"],[/secureserver/,"GoDaddy"],[/protonmail|proton\.ch/,"Proton Mail"],[/uol\.com\.br|uolhost/,"UOL Host"],[/hostgator/,"HostGator"],[/icloud/,"iCloud"],[/yahoo/,"Yahoo"],[/registro\.br/,"Registro.br"]];
+    let last=null;
+    const L={
+      pt:{
+        mx_ok:p=>["Recebimento de e-mail",p?`Servidor identificado: ${p}.`:"Servidores de e-mail (MX) encontrados."],
+        mx_none:["Recebimento de e-mail","Nenhum servidor de e-mail (MX) encontrado para este domínio."],
+        spf_good:["SPF configurado","Define quais servidores podem enviar e-mails em nome do domínio."],
+        spf_all:["SPF permissivo","O registro termina em “+all” ou “?all”, o que na prática libera qualquer servidor."],
+        spf_noall:["SPF incompleto","Falta a regra final (“~all” ou “-all”) no registro."],
+        spf_multi:["SPF duplicado","Há mais de um registro SPF, o que invalida a verificação."],
+        spf_none:["SPF ausente","Qualquer servidor pode tentar enviar e-mails em nome do domínio."],
+        dkim_good:s=>["DKIM encontrado",`Assinatura digital localizada (seletor: ${s}).`],
+        dkim_unk:["DKIM não localizado","Não encontramos a assinatura nos seletores mais comuns. Ela pode existir com outro nome: vale uma verificação mais detalhada."],
+        dmarc_good:p=>["DMARC ativo",`Política “${p}”: e-mails falsos são bloqueados ou vão para o spam.`],
+        dmarc_none:["DMARC só monitora","Política “none”: o domínio recebe relatórios, mas e-mails falsos ainda chegam ao destinatário."],
+        dmarc_miss:["DMARC ausente","Os provedores não recebem instruções sobre o que fazer com e-mails falsos."],
+        v_good:["Bem protegido","O domínio tem as três proteções principais ativas."],
+        v_warn:["Proteção parcial","Existem pontos que deixam brechas para e-mails falsos."],
+        v_bad:["Vulnerável a falsificação","Golpistas podem enviar e-mails se passando pela empresa."],
+        cta_fix:"Quer que a 3RL corrija isso? O pacote E-mail Seguro resolve esses pontos.",
+        cta_ok:"Tudo certo por aqui. Quer revisar outras áreas de tecnologia da empresa?",
+        btn_fix:"Quero corrigir", btn_ok:"Falar com a 3RL",
+        bad_domain:"Digite um domínio válido, por exemplo: suaempresa.com.br",
+        nx:"Este domínio não existe ou não tem DNS publicado.",
+        err:"Não foi possível consultar o DNS agora. Tente novamente em instantes.",
+        checking:"Verificando…", subj:"Verificação de e-mail - ",
+        body:(d,r)=>`Olá! Usei o verificador de e-mail do site da 3RL.\n\nDomínio: ${d}\n${r}\n\nGostaria de ajuda para corrigir.`
+      },
+      en:{
+        mx_ok:p=>["Incoming email",p?`Provider detected: ${p}.`:"Mail servers (MX) found."],
+        mx_none:["Incoming email","No mail server (MX) found for this domain."],
+        spf_good:["SPF configured","Defines which servers may send email on behalf of the domain."],
+        spf_all:["Permissive SPF","The record ends in “+all” or “?all”, which effectively allows any server."],
+        spf_noall:["Incomplete SPF","The record is missing a final rule (“~all” or “-all”)."],
+        spf_multi:["Duplicate SPF","There is more than one SPF record, which breaks validation."],
+        spf_none:["SPF missing","Any server can try to send email on behalf of the domain."],
+        dkim_good:s=>["DKIM found",`Digital signature located (selector: ${s}).`],
+        dkim_unk:["DKIM not located","We did not find a signature under the most common selectors. It may exist under another name and is worth a closer look."],
+        dmarc_good:p=>["DMARC active",`Policy “${p}”: fake emails are blocked or sent to spam.`],
+        dmarc_none:["DMARC monitoring only","Policy “none”: the domain gets reports, but fake emails still reach recipients."],
+        dmarc_miss:["DMARC missing","Mail providers get no instructions on what to do with fake emails."],
+        v_good:["Well protected","The domain has all three main protections active."],
+        v_warn:["Partially protected","There are gaps that let fake emails through."],
+        v_bad:["Open to spoofing","Scammers can send emails pretending to be the company."],
+        cta_fix:"Want 3RL to fix this? The Secure Email package covers these points.",
+        cta_ok:"All good here. Want to review other technology areas of your company?",
+        btn_fix:"Fix it for me", btn_ok:"Talk to 3RL",
+        bad_domain:"Enter a valid domain, e.g. yourcompany.com",
+        nx:"This domain does not exist or has no published DNS.",
+        err:"Could not query DNS right now. Please try again shortly.",
+        checking:"Checking…", subj:"Email check - ",
+        body:(d,r)=>`Hello! I used the email checker on the 3RL website.\n\nDomain: ${d}\n${r}\n\nI would like help fixing it.`
+      }
+    };
+    const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+    const ICON={good:"✓",warn:"!",bad:"✕",unk:"?",info:"i"};
+    function msg(t){ $("vOut").innerHTML=`<div class="vrow s-info"><div class="dot2">i</div><div><span>${esc(t)}</span></div></div>`; }
+    window.vRender=function(){
+      if(!last) return;
+      const T=L[lang];
+      if(last.kind==="msg"){ msg(T[last.key]); return; }
+      const r=last, rows=[];
+      const row=(st,[t,d],code)=>rows.push({st,t,d,code});
+      row(r.spf.st, T["spf_"+r.spf.k], r.spf.rec);
+      row(r.dkim.st, r.dkim.st==="good"?T.dkim_good(r.dkim.sel.join(", ")):T.dkim_unk, null);
+      row(r.dmarc.st, r.dmarc.k==="good"?T.dmarc_good(r.dmarc.p):T["dmarc_"+r.dmarc.k], r.dmarc.rec);
+      row(r.mx.ok?"info":"warn", r.mx.ok?T.mx_ok(r.mx.prov):T.mx_none, null);
+      const v=T["v_"+r.verdict];
+      const resumo=rows.slice(0,3).map(x=>`- ${x.t}`).join("\n");
+      const href="mailto:adm@3rl.com.br?subject="+encodeURIComponent(T.subj+r.domain)+"&body="+encodeURIComponent(T.body(r.domain,resumo));
+      $("vOut").innerHTML=
+        `<div class="verdict v-${r.verdict}"><div class="vi">${ICON[r.verdict]}</div><div><h3>${esc(v[0])} · ${esc(r.domain)}</h3><p>${esc(v[1])}</p></div></div>`+
+        `<div class="vrows">`+rows.map(x=>`<div class="vrow s-${x.st}"><div class="dot2">${ICON[x.st]}</div><div><b>${esc(x.t)}</b><span>${esc(x.d)}</span>${x.code?`<code>${esc(x.code)}</code>`:""}</div></div>`).join("")+`</div>`+
+        `<div class="vcta"><p>${esc(r.verdict==="good"?T.cta_ok:T.cta_fix)}</p><a class="btn" href="${href}">${esc(r.verdict==="good"?T.btn_ok:T.btn_fix)}</a></div>`;
+    };
+    async function check(domain){
+      const [root,mx,dm]=await Promise.all([dns(domain,"TXT"),dns(domain,"MX"),dns("_dmarc."+domain,"TXT")]);
+      if(root.Status===3 && mx.Status===3) return {kind:"msg",key:"nx"};
+      const spfs=txts(root).filter(t=>/^v=spf1(\s|$)/i.test(t));
+      let spf;
+      if(!spfs.length) spf={st:"bad",k:"none"};
+      else if(spfs.length>1) spf={st:"bad",k:"multi",rec:spfs.join(" | ")};
+      else{ const t=spfs[0].toLowerCase().trim(), fin=t.split(/\s+/).pop();
+        if(/^[+?]?all$/.test(fin)) spf={st:"warn",k:"all",rec:spfs[0]};
+        else if(/^[-~]all$/.test(fin)||/redirect=/.test(t)) spf={st:"good",k:"good",rec:spfs[0]};
+        else spf={st:"warn",k:"noall",rec:spfs[0]}; }
+      const dms=txts(dm).filter(t=>/^v=dmarc1/i.test(t));
+      let dmarc;
+      if(!dms.length) dmarc={st:"bad",k:"miss"};
+      else{ const p=((dms[0].match(/(?:^|;)\s*p\s*=\s*(\w+)/i)||[])[1]||"none").toLowerCase();
+        dmarc=(p==="quarantine"||p==="reject")?{st:"good",k:"good",p,rec:dms[0]}:{st:"warn",k:"none",p,rec:dms[0]}; }
+      const sels=await Promise.all(SEL.map(async s=>{ try{ const j=await dns(s+"._domainkey."+domain,"TXT"); const a=j.Answer||[];
+        return a.some(x=>x.type===5||/p=/i.test(String(x.data)))?s:null; }catch(e){return null;} }));
+      const found=sels.filter(Boolean);
+      const dkim=found.length?{st:"good",sel:found}:{st:"unk"};
+      const mxs=(mx.Answer||[]).filter(a=>a.type===15).map(a=>String(a.data).toLowerCase());
+      let prov=null; for(const [re,n] of PROV){ if(mxs.some(m=>re.test(m))){prov=n;break;} }
+      const sts=[spf.st,dmarc.st,dkim.st];
+      const verdict=sts.includes("bad")?"bad":(sts.every(x=>x==="good")?"good":"warn");
+      return {kind:"res",domain,spf,dkim,dmarc,mx:{ok:mxs.length>0,prov},verdict};
+    }
+    $("vForm").addEventListener("submit",async e=>{
+      e.preventDefault();
+      const d=clean($("vDomain").value), btn=$("vBtn");
+      if(!d){ last={kind:"msg",key:"bad_domain"}; window.vRender(); return; }
+      $("vDomain").value=d;
+      const label=btn.textContent; btn.disabled=true; btn.innerHTML=`<span class="spin"></span>${esc(L[lang].checking)}`;
+      try{ last=await check(d); }catch(err){ last={kind:"msg",key:"err"}; }
+      btn.disabled=false; btn.textContent=label; window.vRender();
+    });
+  })();
 
   // calculadora
   (function(){
