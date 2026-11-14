@@ -9,6 +9,18 @@
 <meta property="og:description" content="Consultoria, automação, tecnologia e desenvolvimento. Atendemos o mundo inteiro.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.3rl.com.br/">
+<meta property="og:image" content="https://www.3rl.com.br/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="3RL — Consultoria, automação, tecnologia e desenvolvimento">
+<meta property="og:site_name" content="3RL">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="3RL — Consultoria, automação, tecnologia e desenvolvimento">
+<meta name="twitter:description" content="Consultoria, automação, tecnologia e desenvolvimento. Atendemos o mundo inteiro.">
+<meta name="twitter:image" content="https://www.3rl.com.br/og.jpg">
 <meta name="theme-color" content="#070f1c">
 <link rel="canonical" href="https://www.3rl.com.br/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2322d3b6'/%3E%3Cstop offset='1' stop-color='%236366f1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Arial,Helvetica,sans-serif' font-size='24' font-weight='800' fill='%23070f1c' text-anchor='middle'%3E3RL%3C/text%3E%3C/svg%3E">
@@ -101,6 +113,37 @@
   .dot{width:8px;height:8px;border-radius:999px;border:0;background:rgba(255,255,255,.2);cursor:pointer;transition:width .3s,background .3s}
   .dot.on{width:28px;background:var(--grad)}
 
+  .calc{display:grid;grid-template-columns:1.05fr .95fr;gap:22px}
+  .panel{border-radius:var(--radius);padding:34px;border:1px solid var(--line);background:linear-gradient(165deg,rgba(255,255,255,.07),rgba(255,255,255,.015))}
+  .field{margin-bottom:26px}
+  .field:last-child{margin-bottom:0}
+  .field-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px}
+  .field label{font-weight:500;font-size:.95rem}
+  .field small{display:block;color:var(--muted);font-size:.8rem;margin-top:8px}
+  .val{display:flex;align-items:center;gap:6px;background:var(--glass);border:1px solid var(--line);border-radius:12px;padding:4px 10px;font-family:var(--display);font-weight:600}
+  .val input{width:72px;background:none;border:0;color:var(--ink);font:inherit;font-size:1.05rem;text-align:right;outline:none;-moz-appearance:textfield}
+  .val input::-webkit-outer-spin-button,.val input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  .val span{color:var(--muted);font-size:.85rem;font-weight:500}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:99px;background:linear-gradient(90deg,var(--c1),var(--c2) var(--p,50%),rgba(255,255,255,.12) var(--p,50%));outline:none;cursor:pointer}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;border:4px solid var(--c2);box-shadow:0 0 0 6px rgba(56,189,248,.18);transition:transform .15s}
+  input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.12)}
+  input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#fff;border:4px solid var(--c2)}
+  .result{position:relative;overflow:hidden;display:flex;flex-direction:column;background:linear-gradient(150deg,rgba(34,211,182,.16),rgba(99,102,241,.16) 70%)}
+  .result::after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;right:-120px;bottom:-140px;background:var(--c3);filter:blur(90px);opacity:.35;pointer-events:none}
+  .result > *{position:relative;z-index:1}
+  .r-label{color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:.12em;font-weight:600}
+  .big{font-family:var(--display);font-weight:700;font-size:clamp(2.4rem,5vw,3.4rem);line-height:1.05;margin:8px 0 4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .r-sub{color:var(--muted);font-size:.92rem}
+  .r-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0}
+  .r-box{background:rgba(7,15,28,.45);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .r-box b{display:block;font-family:var(--display);font-size:1.35rem;margin-top:2px}
+  .r-box span{color:var(--muted);font-size:.8rem}
+  .r-box.hl{border-color:rgba(34,211,182,.45)}
+  .r-box.hl b{color:var(--c1)}
+  .result .btn{align-self:flex-start;margin-top:auto}
+  .note{color:var(--muted);font-size:.78rem;margin-top:16px}
+  @media (max-width:900px){.calc{grid-template-columns:1fr}.panel{padding:26px}}
+
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .step{padding:30px;border-radius:var(--radius);background:var(--glass);border:1px solid var(--line)}
   .step b{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:14px;background:var(--grad);color:#04121f;font-family:var(--display);font-size:1.05rem;margin-bottom:18px}
@@ -141,6 +184,7 @@
     <a href="#" class="logo" aria-label="3RL"><i></i><span>3<b>RL</b></span></a>
     <div class="links">
       <a href="#servicos" data-i18n="nav1">Serviços</a>
+      <a href="#calculadora" data-i18n="navCalc">Calculadora</a>
       <a href="#como" data-i18n="nav2">Como trabalhamos</a>
       <a href="#contato" data-i18n="nav3">Contato</a>
     </div>
@@ -218,6 +262,49 @@
     <div class="dots" id="dots"></div>
   </section>
 
+  <section id="calculadora">
+    <div class="reveal" style="margin-bottom:40px">
+      <div class="eyebrow" data-i18n="calcEyebrow">Calculadora</div>
+      <h2 data-i18n="calcTitle">Quanto custam as tarefas manuais?</h2>
+      <p class="sub" data-i18n="calcSub">Descubra quanto tempo e dinheiro a sua equipe gasta com tarefas repetitivas, aquelas que poderiam ser automatizadas.</p>
+    </div>
+    <div class="calc reveal">
+      <div class="panel">
+        <div class="field">
+          <div class="field-top"><label for="qPeople" data-i18n="fPeople">Pessoas na equipe</label><div class="val"><input type="number" id="nPeople" min="1" max="500" value="5" inputmode="numeric" aria-label="Pessoas"></div></div>
+          <input type="range" id="qPeople" min="1" max="100" value="5">
+        </div>
+        <div class="field">
+          <div class="field-top"><label for="qHours" data-i18n="fHours">Horas por semana, por pessoa, em tarefas repetitivas</label><div class="val"><input type="number" id="nHours" min="0" max="60" value="8" inputmode="decimal" aria-label="Horas"><span>h</span></div></div>
+          <input type="range" id="qHours" min="0" max="40" value="8">
+          <small data-i18n="fHoursHint">Ex.: copiar dados entre sistemas, montar relatórios, conferir planilhas, responder e-mails padrão.</small>
+        </div>
+        <div class="field">
+          <div class="field-top"><label for="qCost" data-i18n="fCost">Custo médio da hora de trabalho</label><div class="val"><span id="cur">R$</span><input type="number" id="nCost" min="0" max="2000" value="50" inputmode="decimal" aria-label="Custo"></div></div>
+          <input type="range" id="qCost" min="10" max="500" step="5" value="50">
+          <small data-i18n="fCostHint">Inclua salário e encargos. Na dúvida, use um valor aproximado.</small>
+        </div>
+        <div class="field">
+          <div class="field-top"><label for="qAuto" data-i18n="fAuto">Parte que você acredita ser automatizável</label><div class="val"><input type="number" id="nAuto" min="0" max="100" value="50" inputmode="numeric" aria-label="Percentual"><span>%</span></div></div>
+          <input type="range" id="qAuto" min="0" max="100" step="5" value="50">
+        </div>
+      </div>
+      <div class="panel result" aria-live="polite">
+        <div class="r-label" data-i18n="rYear">Custo por ano com tarefas repetitivas</div>
+        <div class="big" id="oYear">R$ 0</div>
+        <div class="r-sub" id="oMonthLine"></div>
+        <div class="r-grid">
+          <div class="r-box"><span data-i18n="rHours">Horas por mês</span><b id="oHours">0 h</b></div>
+          <div class="r-box"><span data-i18n="rDays">Dias de trabalho por mês</span><b id="oDays">0</b></div>
+          <div class="r-box hl"><span data-i18n="rFreeH">Horas liberadas por ano</span><b id="oFreeH">0 h</b></div>
+          <div class="r-box hl"><span data-i18n="rSave">Potencial por ano</span><b id="oSave">R$ 0</b></div>
+        </div>
+        <a class="btn" id="calcCta" href="mailto:adm@3rl.com.br" data-i18n="calcCta">Quero conversar sobre isso</a>
+        <p class="note" data-i18n="calcNote">Estimativa ilustrativa, calculada só com os números que você informou. Não é uma promessa de resultado: o potencial real depende de cada processo.</p>
+      </div>
+    </div>
+  </section>
+
   <section id="como">
     <div class="reveal" style="margin-bottom:40px">
       <div class="eyebrow" data-i18n="howEyebrow">Processo</div>
@@ -262,7 +349,12 @@
 
   const T = {
     en: {
-      nav1:"Services", nav2:"How we work", nav3:"Contact",
+      nav1:"Services", navCalc:"Calculator", nav2:"How we work", nav3:"Contact",
+      calcEyebrow:"Calculator", calcTitle:"What do manual tasks cost you?", calcSub:"Find out how much time and money your team spends on repetitive tasks, the kind that could be automated.",
+      fPeople:"People on the team", fHours:"Hours per week, per person, on repetitive tasks", fHoursHint:"E.g. copying data between systems, building reports, checking spreadsheets, answering standard emails.",
+      fCost:"Average cost of one work hour", fCostHint:"Include salary and overhead. If unsure, use a rough figure.", fAuto:"Share you believe could be automated",
+      rYear:"Yearly cost of repetitive tasks", rHours:"Hours per month", rDays:"Work days per month", rFreeH:"Hours freed per year", rSave:"Potential per year",
+      calcCta:"Let's talk about it", calcNote:"Illustrative estimate, calculated only from the numbers you entered. Not a promise of results: real potential depends on each process.",
       navContact:"Contact us", pill:"Remote service worldwide",
       h1:'Technology serving <em>your next step</em>.',
       lead:"Consulting, automation, technology and development for those who want to make better decisions, work with less friction and grow safely.",
@@ -301,6 +393,7 @@
     langBtn.innerHTML = l==="pt" ? FLAG_UK+"EN" : FLAG_BR+"PT";
     langBtn.setAttribute("aria-label", l==="pt" ? "Switch to English" : "Mudar para português");
     try{localStorage.setItem("lang",l)}catch(e){}
+    if(window.calc) window.calc();
   }
   langBtn.addEventListener("click",()=>apply(lang==="pt"?"en":"pt"));
   langBtn.innerHTML = FLAG_UK+"EN";
@@ -345,6 +438,40 @@
   track.addEventListener("touchstart",()=>{paused=true;},{passive:true});
   track.addEventListener("touchend",()=>{ setTimeout(()=>paused=false,4000); },{passive:true});
   buildDots(); restart();
+
+
+  // calculadora
+  (function(){
+    const pairs=[["qPeople","nPeople"],["qHours","nHours"],["qCost","nCost"],["qAuto","nAuto"]].map(([r,n])=>[document.getElementById(r),document.getElementById(n)]);
+    const $=id=>document.getElementById(id);
+    const paint=r=>r.style.setProperty("--p",((r.value-r.min)/(r.max-r.min)*100)+"%");
+    pairs.forEach(([r,n])=>{
+      r.addEventListener("input",()=>{n.value=r.value;paint(r);window.calc();});
+      n.addEventListener("input",()=>{const v=parseFloat(n.value);if(!isNaN(v)){r.value=Math.min(Math.max(v,+r.min),+r.max);paint(r);}window.calc();});
+      paint(r);
+    });
+    const num=id=>{const v=parseFloat($(id).value);return isNaN(v)||v<0?0:v;};
+    window.calc=function(){
+      const en=lang==="en", loc=en?"en-US":"pt-BR", cur=en?"USD":"BRL";
+      $("cur").textContent=en?"$":"R$";
+      const money=v=>new Intl.NumberFormat(loc,{style:"currency",currency:cur,maximumFractionDigits:0}).format(v);
+      const int=v=>new Intl.NumberFormat(loc,{maximumFractionDigits:0}).format(v);
+      const p=num("nPeople"), h=num("nHours"), c=num("nCost"), a=Math.min(num("nAuto"),100)/100;
+      const hYear=p*h*52, hMonth=hYear/12, cYear=hYear*c, cMonth=cYear/12;
+      $("oYear").textContent=money(cYear);
+      $("oMonthLine").textContent=(en?"That is about ":"Isso dá cerca de ")+money(cMonth)+(en?" per month.":" por mês.");
+      $("oHours").textContent=int(hMonth)+" h";
+      $("oDays").textContent=int(hMonth/8);
+      $("oFreeH").textContent=int(hYear*a)+" h";
+      $("oSave").textContent=money(cYear*a);
+      const subj=en?"Automation - calculator":"Automação - calculadora";
+      const body=en
+        ?`Hello! I used the calculator on the 3RL website.\n\nTeam: ${p} people\nRepetitive tasks: ${h} h/week per person\nCost per hour: ${money(c)}\nEstimated yearly cost: ${money(cYear)}\n\nI would like to talk about automating these tasks.`
+        :`Olá! Usei a calculadora do site da 3RL.\n\nEquipe: ${p} pessoas\nTarefas repetitivas: ${h} h/semana por pessoa\nCusto da hora: ${money(c)}\nCusto estimado por ano: ${money(cYear)}\n\nGostaria de conversar sobre a automação dessas tarefas.`;
+      $("calcCta").href="mailto:adm@3rl.com.br?subject="+encodeURIComponent(subj)+"&body="+encodeURIComponent(body);
+    };
+    window.calc();
+  })();
 
   // animação de entrada
   const io = "IntersectionObserver" in window ? new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} }),{threshold:.12}) : null;
