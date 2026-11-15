@@ -143,6 +143,29 @@
   .result .btn{align-self:flex-start;margin-top:auto}
   .note{color:var(--muted);font-size:.78rem;margin-top:16px}
   @media (max-width:900px){.calc{grid-template-columns:1fr}.panel{padding:26px}}
+  .mat{display:grid;grid-template-columns:1.25fr .75fr;gap:22px;align-items:start}
+  .mqs{display:grid;gap:12px;padding:26px}
+  .mq{border:1px solid var(--line);border-radius:16px;padding:16px 18px;background:rgba(7,15,28,.35);transition:border-color .2s}
+  .mq.done{border-color:rgba(34,211,182,.35)}
+  .mq legend{display:flex;gap:12px;font-weight:500;font-size:.96rem;line-height:1.45;padding:0;float:left;width:100%;margin-bottom:12px}
+  .mq .mn{font-family:var(--display);font-weight:700;color:var(--c1);flex-shrink:0}
+  .mopts{clear:both;display:flex;flex-wrap:wrap;gap:8px}
+  .mopts label{cursor:pointer}
+  .mopts input{position:absolute;opacity:0;pointer-events:none}
+  .mopts span{display:inline-block;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--glass);font-size:.85rem;transition:background .2s,border-color .2s,color .2s}
+  .mopts label:hover span{background:var(--glass2)}
+  .mopts input:checked+span{background:var(--grad);color:#04121f;border-color:transparent;font-weight:600}
+  .mopts input:focus-visible+span{outline:2px solid var(--c2);outline-offset:2px}
+  .mres{position:sticky;top:96px;display:flex;flex-direction:column}
+  .mprog{height:8px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;margin:14px 0 18px}
+  .mprog span{display:block;height:100%;width:0;background:var(--grad);border-radius:99px;transition:width .35s}
+  .mlvl{font-family:var(--display);font-weight:700;font-size:1.35rem;margin:4px 0 6px}
+  .mpri{list-style:none;display:grid;gap:10px;margin:16px 0 22px}
+  .mpri li{background:rgba(7,15,28,.45);border:1px solid var(--line);border-left:3px solid var(--c1);border-radius:12px;padding:12px 14px;font-size:.88rem;color:var(--muted)}
+  .mpri b{display:block;color:var(--ink);font-size:.93rem;margin-bottom:2px}
+  .mpri a{color:var(--c1);text-decoration:none;font-weight:600}
+  .mreset{background:none;border:0;color:var(--muted);text-decoration:underline;cursor:pointer;font:inherit;font-size:.85rem;margin-top:12px;align-self:flex-start}
+  @media (max-width:900px){.mat{grid-template-columns:1fr}.mres{position:static}}
 
   .packs{display:flex;flex-wrap:wrap;justify-content:center;gap:22px}
   .pack{flex:1 1 320px;max-width:370px;display:flex;flex-direction:column;border-radius:var(--radius);padding:30px;border:1px solid var(--line);background:linear-gradient(165deg,rgba(255,255,255,.07),rgba(255,255,255,.015));transition:transform .3s,border-color .3s}
@@ -349,6 +372,30 @@
           <ul><li data-i18n="k5i1">Mapeamento dos dados pessoais tratados</li><li data-i18n="k5i2">Política de privacidade para o site</li><li data-i18n="k5i3">Boas práticas de segurança e acesso</li><li data-i18n="k5i4">Orientação para a equipe</li></ul>
           <div class="foot"><span class="price" data-i18n="price">Sob consulta</span><a class="btn small" data-pack="k5" href="mailto:adm@3rl.com.br" data-i18n="packBtn">Solicitar orçamento</a></div>
         </article>
+        <article class="pack">
+          <h3 data-i18n="k6t">Backup contra Ransomware</h3>
+          <p data-i18n="k6d">Seus arquivos de volta, mesmo depois de um ataque.</p>
+          <ul><li data-i18n="k6i1">Cópias automáticas dos arquivos e sistemas importantes</li><li data-i18n="k6i2">Uma cópia protegida, fora do alcance de ataques</li><li data-i18n="k6i3">Teste de recuperação com relatório</li><li data-i18n="k6i4">Acompanhamento mensal</li></ul>
+          <div class="foot"><span class="price" data-i18n="price">Sob consulta</span><a class="btn small" data-pack="k6" href="mailto:adm@3rl.com.br" data-i18n="packBtn">Solicitar orçamento</a></div>
+        </article>
+        <article class="pack">
+          <h3 data-i18n="k7t">Acesso Seguro</h3>
+          <p data-i18n="k7d">Só entra quem deve, e cada pessoa vê apenas o que precisa.</p>
+          <ul><li data-i18n="k7i1">Confirmação pelo celular nas contas importantes</li><li data-i18n="k7i2">Cofre de senhas para a equipe</li><li data-i18n="k7i3">Revisão de quem acessa o quê</li><li data-i18n="k7i4">Rotina para entrada e saída de colaboradores</li></ul>
+          <div class="foot"><span class="price" data-i18n="price">Sob consulta</span><a class="btn small" data-pack="k7" href="mailto:adm@3rl.com.br" data-i18n="packBtn">Solicitar orçamento</a></div>
+        </article>
+        <article class="pack">
+          <h3 data-i18n="k8t">Treinamento Antigolpe</h3>
+          <p data-i18n="k8d">Sua equipe preparada para reconhecer golpes antes do prejuízo.</p>
+          <ul><li data-i18n="k8i1">Palestra prática com exemplos reais de golpes</li><li data-i18n="k8i2">Simulação de e-mail falso, autorizada pela empresa</li><li data-i18n="k8i3">Regra para confirmar pagamentos e trocas de conta</li><li data-i18n="k8i4">Relatório com os pontos de atenção</li></ul>
+          <div class="foot"><span class="price" data-i18n="price">Sob consulta</span><a class="btn small" data-pack="k8" href="mailto:adm@3rl.com.br" data-i18n="packBtn">Solicitar orçamento</a></div>
+        </article>
+        <article class="pack">
+          <h3 data-i18n="k9t">Plano de Incidentes</h3>
+          <p data-i18n="k9d">Regras claras e um plano pronto para agir se algo der errado.</p>
+          <ul><li data-i18n="k9i1">Política de segurança em linguagem simples</li><li data-i18n="k9i2">Passo a passo para ataques e vazamentos</li><li data-i18n="k9i3">Contatos e responsáveis definidos</li><li data-i18n="k9i4">Revisão anual do plano</li></ul>
+          <div class="foot"><span class="price" data-i18n="price">Sob consulta</span><a class="btn small" data-pack="k9" href="mailto:adm@3rl.com.br" data-i18n="packBtn">Solicitar orçamento</a></div>
+        </article>
     </div>
   </section>
 
@@ -371,6 +418,130 @@
       <div><h3 data-i18n="pwT">Gerador de senhas seguras</h3><p data-i18n="pwD">Senhas fortes em um clique, criadas no seu aparelho. Grátis, sem cadastro e funciona offline.</p></div>
       <span class="go" data-i18n="pwB">Abrir gerador →</span>
     </a>
+  </section>
+
+  <section id="maturidade">
+    <div class="reveal" style="margin-bottom:40px">
+      <div class="eyebrow" data-i18n="mEyebrow">Teste gratuito</div>
+      <h2 data-i18n="mTitle">Qual é o nível de segurança da sua empresa?</h2>
+      <p class="sub" data-i18n="mSub">Responda 13 perguntas rápidas e descubra os pontos que mais expõem o seu negócio. Leva cerca de 2 minutos.</p>
+    </div>
+    <div class="mat reveal">
+      <form class="panel mqs" id="mForm" novalidate>
+        <fieldset class="mq" data-q="m1" data-w="3" data-pack="k7">
+          <legend><span class="mn">01</span><span data-i18n="m1">As contas de e-mail e sistemas pedem confirmação pelo celular, além da senha?</span></legend>
+          <div class="mopts">
+            <label><input type="radio" name="m1" value="1"><span data-i18n="mYes">Sim</span></label>
+            <label><input type="radio" name="m1" value="0.5"><span data-i18n="mPart">Em parte</span></label>
+            <label><input type="radio" name="m1" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="mq" data-q="m2" data-w="2" data-pack="k7">
+          <legend><span class="mn">02</span><span data-i18n="m2">Cada pessoa tem o próprio login, sem senhas compartilhadas?</span></legend>
+          <div class="mopts">
+            <label><input type="radio" name="m2" value="1"><span data-i18n="mYes">Sim</span></label>
+            <label><input type="radio" name="m2" value="0.5"><span data-i18n="mPart">Em parte</span></label>
+            <label><input type="radio" name="m2" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="mq" data-q="m3" data-w="2" data-pack="k7">
+          <legend><span class="mn">03</span><span data-i18n="m3">As senhas da equipe ficam num cofre de senhas, e não em papel ou planilha?</span></legend>
+          <div class="mopts">
+            <label><input type="radio" name="m3" value="1"><span data-i18n="mYes">Sim</span></label>
+            <label><input type="radio" name="m3" value="0.5"><span data-i18n="mPart">Em parte</span></label>
+            <label><input type="radio" name="m3" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="mq" data-q="m4" data-w="2" data-pack="k7">
+          <legend><span class="mn">04</span><span data-i18n="m4">Quando alguém sai da empresa, os acessos são cancelados no mesmo dia?</span></legend>
+          <div class="mopts">
+            <label><input type="radio" name="m4" value="1"><span data-i18n="mYes">Sim</span></label>
+            <label><input type="radio" name="m4" value="0.5"><span data-i18n="mPart">Em parte</span></label>
+            <label><input type="radio" name="m4" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="mq" data-q="m5" data-w="3" data-pack="k6">
+          <legend><span class="mn">05</span><span data-i18n="m5">Os arquivos e sistemas importantes têm cópia de segurança automática?</span></legend>
+          <div class="mopts">
+            <label><input type="radio" name="m5" value="1"><span data-i18n="mYes">Sim</span></label>
+            <label><input type="radio" name="m5" value="0.5"><span data-i18n="mPart">Em parte</span></label>
+            <label><input type="radio" name="m5" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="mq" data-q="m6" data-w="3" data-pack="k6">
+          <legend><span class="mn">06</span><span data-i18n="m6">Uma das cópias fica separada, fora do alcance de um ataque à rede?</span></legend>
+          <div class="mopts">
+            <label><input type="radio" name="m6" value="1"><span data-i18n="mYes">Sim</span></label>
+            <label><input type="radio" name="m6" value="0.5"><span data-i18n="mPart">Em parte</span></label>
+            <label><input type="radio" name="m6" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="mq" data-q="m7" data-w="2" data-pack="k6">
+          <legend><span class="mn">07</span><span data-i18n="m7">Vocês testaram recuperar um backup nos últimos 6 meses?</span></legend>
+          <div class="mopts">
+            <label><input type="radio" name="m7" value="1"><span data-i18n="mYes">Sim</span></label>
+            <label><input type="radio" name="m7" value="0.5"><span data-i18n="mPart">Em parte</span></label>
+            <label><input type="radio" name="m7" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="mq" data-q="m8" data-w="3" data-pack="k8">
+          <legend><span class="mn">08</span><span data-i18n="m8">A equipe já recebeu orientação sobre golpes por e-mail, WhatsApp e boletos falsos?</span></legend>
+          <div class="mopts">
+            <label><input type="radio" name="m8" value="1"><span data-i18n="mYes">Sim</span></label>
+            <label><input type="radio" name="m8" value="0.5"><span data-i18n="mPart">Em parte</span></label>
+            <label><input type="radio" name="m8" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="mq" data-q="m9" data-w="3" data-pack="k8">
+          <legend><span class="mn">09</span><span data-i18n="m9">Existe uma regra para confirmar pedidos de pagamento ou troca de conta bancária?</span></legend>
+          <div class="mopts">
+            <label><input type="radio" name="m9" value="1"><span data-i18n="mYes">Sim</span></label>
+            <label><input type="radio" name="m9" value="0.5"><span data-i18n="mPart">Em parte</span></label>
+            <label><input type="radio" name="m9" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="mq" data-q="m10" data-w="2" data-pack="k9">
+          <legend><span class="mn">10</span><span data-i18n="m10">Computadores e celulares da empresa recebem atualizações automaticamente?</span></legend>
+          <div class="mopts">
+            <label><input type="radio" name="m10" value="1"><span data-i18n="mYes">Sim</span></label>
+            <label><input type="radio" name="m10" value="0.5"><span data-i18n="mPart">Em parte</span></label>
+            <label><input type="radio" name="m10" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="mq" data-q="m11" data-w="2" data-pack="k9">
+          <legend><span class="mn">11</span><span data-i18n="m11">Existe um plano escrito do que fazer em caso de ataque ou vazamento?</span></legend>
+          <div class="mopts">
+            <label><input type="radio" name="m11" value="1"><span data-i18n="mYes">Sim</span></label>
+            <label><input type="radio" name="m11" value="0.5"><span data-i18n="mPart">Em parte</span></label>
+            <label><input type="radio" name="m11" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="mq" data-q="m12" data-w="2" data-pack="k2">
+          <legend><span class="mn">12</span><span data-i18n="m12">O e-mail da empresa está protegido contra falsificação?</span></legend>
+          <div class="mopts">
+            <label><input type="radio" name="m12" value="1"><span data-i18n="mYes">Sim</span></label>
+            <label><input type="radio" name="m12" value="0.5"><span data-i18n="mPart">Em parte</span></label>
+            <label><input type="radio" name="m12" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="mq" data-q="m13" data-w="2" data-pack="k5">
+          <legend><span class="mn">13</span><span data-i18n="m13">Vocês sabem quais dados pessoais de clientes guardam e quem tem acesso a eles?</span></legend>
+          <div class="mopts">
+            <label><input type="radio" name="m13" value="1"><span data-i18n="mYes">Sim</span></label>
+            <label><input type="radio" name="m13" value="0.5"><span data-i18n="mPart">Em parte</span></label>
+            <label><input type="radio" name="m13" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
+          </div>
+        </fieldset>
+      </form>
+      <div class="panel result mres" aria-live="polite">
+        <div class="r-label" data-i18n="mResLabel">Seu resultado</div>
+        <div class="mprog"><span id="mBar"></span></div>
+        <div id="mOut"></div>
+        <a class="btn" id="mCta" href="mailto:adm@3rl.com.br" hidden data-i18n="mCta">Quero melhorar esses pontos</a>
+        <button class="mreset" id="mReset" type="button" hidden data-i18n="mReset">Refazer o teste</button>
+        <p class="note" data-i18n="mNote">Resultado indicativo, calculado só com as suas respostas. Nada é enviado nem armazenado.</p>
+      </div>
+    </div>
   </section>
 
   <section id="calculadora">
@@ -468,6 +639,7 @@
       k3t:"Essential Automation", k3d:"One manual routine turned into a reliable automated workflow.", k3i1:"Mapping of the current process", k3i2:"Automation of spreadsheets, reports or alerts", k3i3:"Testing and documentation", k3i4:"Follow-up after delivery",
       k4t:"Management Dashboard", k4d:"Your business's key numbers in one place.", k4i1:"Definition of key indicators", k4i2:"Integration of data sources", k4i3:"Always up-to-date visual dashboard", k4i4:"Access from computer and phone",
       k5t:"Privacy & LGPD", k5d:"Data protection best practices to operate more safely.", k5i1:"Mapping of personal data processed", k5i2:"Privacy policy for the website", k5i3:"Security and access best practices", k5i4:"Team guidance",
+      k6t:"Ransomware-proof Backup", k6d:"Your files back, even after an attack.", k6i1:"Automatic copies of important files and systems", k6i2:"One protected copy, out of attackers' reach", k6i3:"Recovery test with report", k6i4:"Monthly follow-up", k7t:"Secure Access", k7d:"Only the right people get in, and each sees only what they need.", k7i1:"Phone confirmation on key accounts", k7i2:"Password vault for the team", k7i3:"Review of who can access what", k7i4:"Routine for staff joining and leaving", k8t:"Anti-Scam Training", k8d:"Your team ready to spot scams before they cost you.", k8i1:"Hands-on talk with real scam examples", k8i2:"Fake email simulation, authorized by the company", k8i3:"Rule to confirm payments and bank detail changes", k8i4:"Report with the points to watch", k9t:"Incident Plan", k9d:"Clear rules and a ready plan to act if something goes wrong.", k9i1:"Security policy in plain language", k9i2:"Step-by-step for attacks and data leaks", k9i3:"Defined contacts and responsibilities", k9i4:"Yearly plan review", m1:"Do email and system accounts ask for phone confirmation in addition to the password?", m2:"Does each person have their own login, with no shared passwords?", m3:"Are the team's passwords kept in a password vault, not on paper or spreadsheets?", m4:"When someone leaves the company, is their access removed the same day?", m5:"Do important files and systems have automatic backups?", m6:"Is one of the copies kept separate, out of reach of an attack on the network?", m7:"Have you tested restoring a backup in the last 6 months?", m8:"Has the team been trained on email, WhatsApp and fake invoice scams?", m9:"Is there a rule for confirming payment requests or bank detail changes?", m10:"Do company computers and phones get updates automatically?", m11:"Is there a written plan for what to do in case of an attack or data leak?", m12:"Is the company's email protected against spoofing?", m13:"Do you know which customer personal data you keep and who can access it?", mEyebrow:"Free test", mTitle:"How secure is your company?", mSub:"Answer 13 quick questions and find the points that expose your business the most. It takes about 2 minutes.", mYes:"Yes", mPart:"Partly", mNo:"No or not sure", mResLabel:"Your result", mCta:"I want to improve these points", mReset:"Retake the test", mNote:"Indicative result, calculated only from your answers. Nothing is sent or stored.",
       vEyebrow:"Free tool", vTitle:"Is your company's email protected?", vSub:"Enter your domain and see in seconds whether it has the protections that stop scammers from sending fake emails in your company's name.",
       vBtn:"Check now", vHint:"We only check public records. Nothing is stored.", pwT:"Secure password generator", pwD:"Strong passwords in one click, created on your device. Free, no sign-up, works offline.", pwB:"Open generator →",
       calcEyebrow:"Calculator", calcTitle:"What do manual tasks cost you?", calcSub:"Find out how much time and money your team spends on repetitive tasks, the kind that could be automated.",
@@ -516,6 +688,7 @@
     if(window.calc) window.calc();
     if(window.vRender) window.vRender();
     if(window.packLinks) window.packLinks();
+    if(window.mRender) window.mRender();
   }
   langBtn.addEventListener("click",()=>apply(lang==="pt"?"en":"pt"));
   langBtn.innerHTML = FLAG_UK+"EN";
@@ -733,6 +906,52 @@
       $("calcCta").href="mailto:adm@3rl.com.br?subject="+encodeURIComponent(subj)+"&body="+encodeURIComponent(body);
     };
     window.calc();
+  })();
+
+  // teste de maturidade
+  (function(){
+    const form=document.getElementById("mForm"); if(!form) return;
+    const qs=[...form.querySelectorAll(".mq")];
+    const RISK={"k7": {"pt": "Contas sem proteção extra são a porta de entrada mais comum de invasões.", "en": "Accounts without extra protection are the most common way in for intruders."}, "k6": {"pt": "Sem cópias protegidas e testadas, um ataque pode apagar anos de trabalho.", "en": "Without protected and tested copies, an attack can wipe out years of work."}, "k8": {"pt": "Golpes que enganam a equipe causam prejuízo direto, sem invadir nada.", "en": "Scams that fool the team cause direct losses without breaking into anything."}, "k9": {"pt": "Sem regras e sem plano, um incidente vira improviso e o dano cresce.", "en": "Without rules or a plan, an incident turns into improvisation and damage grows."}, "k2": {"pt": "Golpistas podem enviar e-mails falsos em nome da empresa.", "en": "Scammers can send fake emails in the company's name."}, "k5": {"pt": "Dados pessoais sem controle trazem risco de vazamento e de sanções da LGPD.", "en": "Uncontrolled personal data brings leak risk and LGPD penalties."}};
+    const $=id=>document.getElementById(id);
+    const esc=t=>t.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+    window.mRender=function(){
+      const en=lang==="en";
+      let tw=0,got=0,answered=0; const gaps={};
+      qs.forEach(q=>{
+        const w=+q.dataset.w, c=q.querySelector("input:checked");
+        q.classList.toggle("done",!!c);
+        tw+=w;
+        if(c){answered++; const v=+c.value; got+=w*v; if(v<1){const p=q.dataset.pack; gaps[p]=(gaps[p]||0)+w*(1-v);}}
+      });
+      $("mBar").style.width=(answered/qs.length*100)+"%";
+      const out=$("mOut"), cta=$("mCta"), rs=$("mReset");
+      if(answered<qs.length){
+        out.innerHTML='<p class="r-sub">'+(en?`${answered} of ${qs.length} answered. Answer all questions to see your score.`:`${answered} de ${qs.length} respondidas. Responda todas para ver a sua nota.`)+'</p>';
+        cta.hidden=true; rs.hidden=answered===0; return;
+      }
+      const score=Math.round(got/tw*100);
+      const lvl=score>=75?(en?"Well on track":"Bem encaminhada"):score>=45?(en?"Evolving":"Em evolução"):(en?"Exposed":"Exposta");
+      const lvlTxt=score>=75?(en?"Good foundations. A few adjustments make the company even harder to hit.":"Boa base. Alguns ajustes deixam a empresa ainda mais difícil de atingir.")
+        :score>=45?(en?"There is protection, but with gaps that attackers often exploit.":"Existe proteção, mas com brechas que os golpistas costumam explorar.")
+        :(en?"The company is exposed to the most common attacks and scams.":"A empresa está exposta aos ataques e golpes mais comuns.");
+      const top=Object.entries(gaps).sort((a,b)=>b[1]-a[1]).slice(0,3);
+      const name=k=>document.querySelector(`[data-i18n="${k}t"]`).textContent;
+      let h=`<div class="big">${score}<span style="font-size:.45em">/100</span></div><div class="mlvl">${esc(lvl)}</div><p class="r-sub">${esc(lvlTxt)}</p>`;
+      if(top.length){
+        h+=`<ul class="mpri">`+top.map(([k])=>`<li><b>${esc(name(k))}</b>${esc(RISK[k][en?"en":"pt"])} <a href="#solucoes">${en?"See package →":"Ver pacote →"}</a></li>`).join("")+`</ul>`;
+      }
+      out.innerHTML=h;
+      const subj=(en?"Security test - score ":"Teste de segurança - nota ")+score;
+      const body=en
+        ?`Hello! I took the security test on the 3RL website.\n\nScore: ${score}/100 (${lvl})\nPriorities: ${top.map(([k])=>name(k)).join(", ")||"-"}\n\nCompany:\nNumber of employees:\n\nI would like to talk about improving these points.`
+        :`Olá! Fiz o teste de segurança no site da 3RL.\n\nNota: ${score}/100 (${lvl})\nPrioridades: ${top.map(([k])=>name(k)).join(", ")||"-"}\n\nEmpresa:\nNúmero de colaboradores:\n\nGostaria de conversar sobre como melhorar esses pontos.`;
+      cta.href="mailto:adm@3rl.com.br?subject="+encodeURIComponent(subj)+"&body="+encodeURIComponent(body);
+      cta.hidden=false; rs.hidden=false;
+    };
+    form.addEventListener("change",window.mRender);
+    $("mReset").addEventListener("click",()=>{form.reset();window.mRender();form.scrollIntoView({behavior:"smooth",block:"start"});});
+    window.mRender();
   })();
 
   // animação de entrada
