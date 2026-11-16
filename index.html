@@ -24,250 +24,32 @@
 <meta name="theme-color" content="#070f1c">
 <link rel="canonical" href="https://www.3rl.com.br/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2322d3b6'/%3E%3Cstop offset='1' stop-color='%236366f1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Arial,Helvetica,sans-serif' font-size='24' font-weight='800' fill='%23070f1c' text-anchor='middle'%3E3RL%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#070f1c; --ink:#eef3f9; --muted:#93a4b8; --line:rgba(255,255,255,.08);
-    --glass:rgba(255,255,255,.04); --glass2:rgba(255,255,255,.07);
-    --c1:#22d3b6; --c2:#38bdf8; --c3:#6366f1; --c4:#a855f7;
-    --grad:linear-gradient(120deg,var(--c1),var(--c2) 45%,var(--c3));
-    --radius:22px;
-    --display:"Space Grotesk",system-ui,sans-serif;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-  a{color:inherit}
-  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
-  h1,h2,h3{font-family:var(--display);letter-spacing:-.02em}
-
-  .bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
-  .bg::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 75%)}
-  .blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.45;animation:float 18s ease-in-out infinite}
-  .b1{width:520px;height:520px;background:var(--c1);top:-180px;left:-120px}
-  .b2{width:460px;height:460px;background:var(--c3);top:-120px;right:-140px;animation-delay:-6s}
-  .b3{width:380px;height:380px;background:var(--c4);top:520px;left:40%;opacity:.18;animation-delay:-12s}
-  @keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,30px) scale(1.08)}}
-
-  header{position:sticky;top:14px;z-index:20;margin-top:14px}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 10px 0 22px;background:rgba(10,20,36,.6);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);border:1px solid var(--line);border-radius:999px}
-  .logo{font-family:var(--display);font-weight:700;font-size:1.45rem;text-decoration:none;display:flex;align-items:center;gap:10px}
-  .logo i{width:30px;height:30px;border-radius:9px;background:var(--grad);display:inline-block;box-shadow:0 0 24px -4px var(--c2)}
-  .logo b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .links{display:flex;gap:28px;font-size:.92rem;color:var(--muted)}
-  .links a{text-decoration:none;transition:color .2s}
-  .links a:hover{color:var(--ink)}
-  .nav-right{display:flex;gap:10px;align-items:center}
-  .lang{display:flex;align-items:center;gap:8px;background:var(--glass);border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:7px 14px 7px 9px;font:600 .82rem "Inter",sans-serif;cursor:pointer;transition:background .2s,border-color .2s}
-  .lang:hover{background:var(--glass2);border-color:rgba(255,255,255,.18)}
-  .lang svg{width:24px;height:16px;border-radius:3px;box-shadow:0 0 0 1px rgba(255,255,255,.15);flex:none}
-  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--grad);background-size:200% 100%;color:#04121f;font-weight:600;text-decoration:none;padding:13px 24px;border-radius:999px;border:0;cursor:pointer;transition:transform .2s,box-shadow .2s,background-position .4s}
-  .btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px -12px var(--c2);background-position:100% 0}
-  .btn.small{padding:10px 18px;font-size:.88rem}
-  .btn.ghost{background:var(--glass);color:var(--ink);border:1px solid var(--line)}
-  .btn.ghost:hover{background:var(--glass2);box-shadow:none}
-
-  .hero{padding:110px 0 100px;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
-  .pill{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border:1px solid var(--line);background:var(--glass);border-radius:999px;font-size:.82rem;color:var(--muted);margin-bottom:26px}
-  .pill span{background:var(--grad);color:#04121f;font-weight:600;border-radius:999px;padding:3px 10px;font-size:.75rem}
-  h1{font-size:clamp(2.5rem,5.6vw,4.4rem);line-height:1.04;font-weight:700}
-  h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .lead{color:var(--muted);font-size:1.15rem;max-width:560px;margin:26px 0 38px}
-  .cta{display:flex;gap:12px;flex-wrap:wrap}
-
-  .stack{position:relative;height:420px}
-  .tile{position:absolute;width:215px;padding:20px;border-radius:20px;background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.02));border:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 30px 60px -30px rgba(0,0,0,.8);animation:bob 7s ease-in-out infinite}
-  .tile .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;margin-bottom:12px;color:#04121f}
-  .tile h3{font-size:1.05rem;margin-bottom:4px}
-  .tile p{font-size:.82rem;color:var(--muted)}
-  .t1{top:0;left:0}.t2{top:90px;right:0;animation-delay:-2s}.t3{top:200px;left:14px;animation-delay:-4s}.t4{top:290px;right:14px;animation-delay:-1s}
-  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-
-  section{padding:90px 0}
-  .eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:12px;display:inline-block}
-  h2{font-size:clamp(2rem,3.6vw,2.9rem);line-height:1.1;margin-bottom:14px}
-  .sub{color:var(--muted);max-width:560px}
-  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
-
-  .ctrl{display:flex;gap:10px}
-  .arrow{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--glass);color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
-  .arrow:hover{background:var(--glass2);border-color:rgba(255,255,255,.2);transform:scale(1.05)}
-  .viewport{margin:0 -24px;padding:10px 0 24px}
-  .track{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:10px 24px 14px;scroll-padding:0 24px;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
-  @media (max-width:900px){.track{-webkit-mask-image:none;mask-image:none}}
-  .track::-webkit-scrollbar{display:none}
-  .slide{flex:0 0 min(440px,84vw);scroll-snap-align:start;position:relative;border-radius:var(--radius);padding:34px;background:linear-gradient(165deg,rgba(255,255,255,.07),rgba(255,255,255,.015));border:1px solid var(--line);overflow:hidden;transition:transform .35s,border-color .35s}
-  .slide:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.18)}
-  .slide::before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;top:-120px;right:-100px;background:var(--glow);filter:blur(70px);opacity:.35;transition:opacity .35s}
-  .slide:hover::before{opacity:.6}
-  .slide .num{font-family:var(--display);font-size:4.5rem;font-weight:700;line-height:1;position:absolute;top:22px;right:28px;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.14)}
-  .slide .ic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:var(--glow);color:#04121f;margin-bottom:26px;box-shadow:0 12px 30px -10px var(--glow);position:relative}
-  .slide h3{font-size:1.6rem;margin-bottom:10px;position:relative}
-  .slide p{color:var(--muted);margin-bottom:22px;max-width:360px;position:relative}
-  .slide ul{list-style:none;display:grid;gap:11px;padding-top:22px;border-top:1px solid var(--line);position:relative}
-  .slide li{display:flex;gap:12px;align-items:flex-start;font-size:.94rem}
-  .slide li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;background:var(--glow) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2304121f' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/11px no-repeat}
-  .dots{display:flex;justify-content:center;gap:8px}
-  .dot{width:8px;height:8px;border-radius:999px;border:0;background:rgba(255,255,255,.2);cursor:pointer;transition:width .3s,background .3s}
-  .dot.on{width:28px;background:var(--grad)}
-
-  .calc{display:grid;grid-template-columns:1.05fr .95fr;gap:22px}
-  .panel{border-radius:var(--radius);padding:34px;border:1px solid var(--line);background:linear-gradient(165deg,rgba(255,255,255,.07),rgba(255,255,255,.015))}
-  .field{margin-bottom:26px}
-  .field:last-child{margin-bottom:0}
-  .field-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px}
-  .field label{font-weight:500;font-size:.95rem}
-  .field small{display:block;color:var(--muted);font-size:.8rem;margin-top:8px}
-  .val{display:flex;align-items:center;gap:6px;background:var(--glass);border:1px solid var(--line);border-radius:12px;padding:4px 10px;font-family:var(--display);font-weight:600}
-  .val input{width:72px;background:none;border:0;color:var(--ink);font:inherit;font-size:1.05rem;text-align:right;outline:none;-moz-appearance:textfield}
-  .val input::-webkit-outer-spin-button,.val input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-  .val span{color:var(--muted);font-size:.85rem;font-weight:500}
-  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:99px;background:linear-gradient(90deg,var(--c1),var(--c2) var(--p,50%),rgba(255,255,255,.12) var(--p,50%));outline:none;cursor:pointer}
-  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;border:4px solid var(--c2);box-shadow:0 0 0 6px rgba(56,189,248,.18);transition:transform .15s}
-  input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.12)}
-  input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#fff;border:4px solid var(--c2)}
-  .result{position:relative;overflow:hidden;display:flex;flex-direction:column;background:linear-gradient(150deg,rgba(34,211,182,.16),rgba(99,102,241,.16) 70%)}
-  .result::after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;right:-120px;bottom:-140px;background:var(--c3);filter:blur(90px);opacity:.35;pointer-events:none}
-  .result > *{position:relative;z-index:1}
-  .r-label{color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:.12em;font-weight:600}
-  .big{font-family:var(--display);font-weight:700;font-size:clamp(2.4rem,5vw,3.4rem);line-height:1.05;margin:8px 0 4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .r-sub{color:var(--muted);font-size:.92rem}
-  .r-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0}
-  .r-box{background:rgba(7,15,28,.45);border:1px solid var(--line);border-radius:16px;padding:16px}
-  .r-box b{display:block;font-family:var(--display);font-size:1.35rem;margin-top:2px}
-  .r-box span{color:var(--muted);font-size:.8rem}
-  .r-box.hl{border-color:rgba(34,211,182,.45)}
-  .r-box.hl b{color:var(--c1)}
-  .result .btn{align-self:flex-start;margin-top:auto}
-  .note{color:var(--muted);font-size:.78rem;margin-top:16px}
-  @media (max-width:900px){.calc{grid-template-columns:1fr}.panel{padding:26px}}
-  .mat{display:grid;grid-template-columns:1.25fr .75fr;gap:22px;align-items:start}
-  .mqs{display:grid;gap:12px;padding:26px}
-  .mq{border:1px solid var(--line);border-radius:16px;padding:16px 18px;background:rgba(7,15,28,.35);transition:border-color .2s}
-  .mq.done{border-color:rgba(34,211,182,.35)}
-  .mq legend{display:flex;gap:12px;font-weight:500;font-size:.96rem;line-height:1.45;padding:0;float:left;width:100%;margin-bottom:12px}
-  .mq .mn{font-family:var(--display);font-weight:700;color:var(--c1);flex-shrink:0}
-  .mopts{clear:both;display:flex;flex-wrap:wrap;gap:8px}
-  .mopts label{cursor:pointer}
-  .mopts input{position:absolute;opacity:0;pointer-events:none}
-  .mopts span{display:inline-block;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--glass);font-size:.85rem;transition:background .2s,border-color .2s,color .2s}
-  .mopts label:hover span{background:var(--glass2)}
-  .mopts input:checked+span{background:var(--grad);color:#04121f;border-color:transparent;font-weight:600}
-  .mopts input:focus-visible+span{outline:2px solid var(--c2);outline-offset:2px}
-  .mres{position:sticky;top:96px;display:flex;flex-direction:column}
-  .mprog{height:8px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;margin:14px 0 18px}
-  .mprog span{display:block;height:100%;width:0;background:var(--grad);border-radius:99px;transition:width .35s}
-  .mlvl{font-family:var(--display);font-weight:700;font-size:1.35rem;margin:4px 0 6px}
-  .mpri{list-style:none;display:grid;gap:10px;margin:16px 0 22px}
-  .mpri li{background:rgba(7,15,28,.45);border:1px solid var(--line);border-left:3px solid var(--c1);border-radius:12px;padding:12px 14px;font-size:.88rem;color:var(--muted)}
-  .mpri b{display:block;color:var(--ink);font-size:.93rem;margin-bottom:2px}
-  .mpri a{color:var(--c1);text-decoration:none;font-weight:600}
-  .mreset{background:none;border:0;color:var(--muted);text-decoration:underline;cursor:pointer;font:inherit;font-size:.85rem;margin-top:12px;align-self:flex-start}
-  @media (max-width:900px){.mat{grid-template-columns:1fr}.mres{position:static}}
-
-  .packs{display:flex;flex-wrap:wrap;justify-content:center;gap:22px}
-  .pack{flex:1 1 320px;max-width:370px;display:flex;flex-direction:column;border-radius:var(--radius);padding:30px;border:1px solid var(--line);background:linear-gradient(165deg,rgba(255,255,255,.07),rgba(255,255,255,.015));transition:transform .3s,border-color .3s}
-  .pack:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.2)}
-  .pack.feat{border-color:rgba(34,211,182,.5);background:linear-gradient(165deg,rgba(34,211,182,.13),rgba(99,102,241,.08))}
-  .pack .badge{align-self:flex-start;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#04121f;background:var(--grad);border-radius:999px;padding:4px 10px;margin-bottom:14px}
-  .pack h3{font-size:1.35rem;margin-bottom:8px}
-  .pack > p{color:var(--muted);font-size:.93rem;margin-bottom:18px}
-  .pack ul{list-style:none;display:grid;gap:9px;margin-bottom:24px}
-  .pack li{display:flex;gap:10px;font-size:.9rem}
-  .pack li::before{content:"✓";color:var(--c1);font-weight:700}
-  .pack .foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:18px;border-top:1px solid var(--line)}
-  .pack .price{font-family:var(--display);font-weight:600;color:var(--muted);font-size:.95rem}
-
-  .checker{border-radius:var(--radius);padding:34px;border:1px solid var(--line);background:linear-gradient(165deg,rgba(255,255,255,.07),rgba(255,255,255,.015))}
-  .vform{display:flex;gap:12px;flex-wrap:wrap}
-  .vform input{flex:1 1 260px;min-width:0;background:rgba(7,15,28,.6);border:1px solid var(--line);border-radius:999px;padding:14px 22px;color:var(--ink);font:500 1rem "Inter",sans-serif;outline:none;transition:border-color .2s}
-  .vform input:focus{border-color:var(--c2)}
-  .vform .btn{padding:14px 26px}
-  .vform .btn[disabled]{opacity:.6;cursor:wait;transform:none}
-  .vhint{color:var(--muted);font-size:.8rem;margin-top:12px}
-  .toolcard{display:flex;align-items:center;gap:20px;margin-top:18px;padding:24px 28px;border-radius:var(--radius);border:1px solid var(--line);background:var(--glass);text-decoration:none;transition:background .2s,transform .2s}
-  .toolcard:hover{background:var(--glass2);transform:translateY(-2px)}
-  .toolcard .tic{width:52px;height:52px;flex-shrink:0;border-radius:14px;background:var(--grad);display:grid;place-items:center;color:#04121f}
-  .toolcard .tic svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-  .toolcard h3{font-size:1.15rem;margin-bottom:2px}
-  .toolcard p{color:var(--muted);font-size:.92rem}
-  .toolcard .go{margin-left:auto;font-weight:600;white-space:nowrap;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  @media (max-width:560px){.toolcard{flex-wrap:wrap;padding:22px}.toolcard .go{margin-left:0}}
-  .vout{margin-top:28px}
-  .vout:empty{display:none}
-  .verdict{display:flex;align-items:center;gap:16px;padding:20px 22px;border-radius:18px;margin-bottom:16px;border:1px solid var(--line)}
-  .verdict .vi{width:46px;height:46px;flex:none;border-radius:14px;display:grid;place-items:center;font-size:1.3rem;font-weight:700;color:#04121f}
-  .verdict h3{font-size:1.25rem}
-  .verdict p{color:var(--muted);font-size:.9rem}
-  .v-good{background:rgba(34,211,182,.1);border-color:rgba(34,211,182,.4)}.v-good .vi{background:#22d3b6}
-  .v-warn{background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.4)}.v-warn .vi{background:#fbbf24}
-  .v-bad{background:rgba(248,113,113,.08);border-color:rgba(248,113,113,.45)}.v-bad .vi{background:#f87171}
-  .vrows{display:grid;gap:10px}
-  .vrow{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:14px;background:rgba(7,15,28,.45);border:1px solid var(--line)}
-  .vrow .dot2{width:28px;height:28px;flex:none;border-radius:50%;display:grid;place-items:center;font-size:.85rem;font-weight:700;color:#04121f;margin-top:2px}
-  .s-good .dot2{background:#22d3b6}.s-warn .dot2{background:#fbbf24}.s-bad .dot2{background:#f87171}.s-unk .dot2,.s-info .dot2{background:#93a4b8}
-  .vrow b{display:block;font-size:.98rem}
-  .vrow span{color:var(--muted);font-size:.88rem;display:block}
-  .vrow code{display:block;margin-top:6px;font:.76rem/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#b8c7d9;background:rgba(255,255,255,.04);border-radius:8px;padding:6px 9px;word-break:break-all;max-height:4.4em;overflow:hidden}
-  .vcta{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:20px}
-  .vcta p{color:var(--muted);font-size:.9rem;max-width:520px}
-  .spin{display:inline-block;width:16px;height:16px;border:2px solid rgba(4,18,31,.3);border-top-color:#04121f;border-radius:50%;animation:sp .8s linear infinite}
-  @keyframes sp{to{transform:rotate(360deg)}}
-  @media (max-width:560px){.checker{padding:24px}.vform .btn{width:100%;justify-content:center}}
-
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .step{padding:30px;border-radius:var(--radius);background:var(--glass);border:1px solid var(--line)}
-  .step b{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:14px;background:var(--grad);color:#04121f;font-family:var(--display);font-size:1.05rem;margin-bottom:18px}
-  .step h3{font-size:1.25rem;margin-bottom:8px}
-  .step p{color:var(--muted);font-size:.95rem}
-
-  .contact{position:relative;overflow:hidden;border-radius:32px;padding:64px;border:1px solid var(--line);background:linear-gradient(135deg,rgba(34,211,182,.14),rgba(99,102,241,.14) 60%,rgba(168,85,247,.12));display:flex;flex-wrap:wrap;gap:36px;justify-content:space-between;align-items:center}
-  .contact::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.08) 1px,transparent 1px);background-size:22px 22px;-webkit-mask-image:linear-gradient(90deg,transparent,#000);mask-image:linear-gradient(90deg,transparent,#000);pointer-events:none}
-  .contact > *{position:relative;z-index:1}
-  .contact p{color:var(--muted)}
-  .mail{font-family:var(--display);font-size:1.5rem;font-weight:600;text-decoration:none;display:inline-block;margin-top:16px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .world{display:flex;gap:10px;align-items:center;color:var(--muted);margin-top:10px;font-size:.95rem}
-
-  footer{padding:36px 0 44px;color:var(--muted);font-size:.88rem}
-  footer .wrap > div{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid var(--line);padding-top:28px}
-
-  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
-  .reveal.in{opacity:1;transform:none}
-
-  @media (max-width:900px){
-    .hero{grid-template-columns:1fr;padding:70px 0 60px}
-    .stack{display:none}
-    .links{display:none}
-    .steps{grid-template-columns:1fr}
-    .contact{padding:36px}
-    .ctrl{display:none}
-  }
-  @media (max-width:560px){.nav .btn.small{display:none}.slide{padding:28px}}
-  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
-</style>
-</head>
-<body>
+<link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"3RL","url":"https://www.3rl.com.br/","email":"adm@3rl.com.br","description":"Consultoria, automação, tecnologia e desenvolvimento.","image":"https://www.3rl.com.br/og.jpg","areaServed":"Worldwide","address":{"@type":"PostalAddress","addressRegion":"SC","addressCountry":"BR"}}</script>
+</head><body>
 <div class="bg" aria-hidden="true"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
 
 <div class="wrap">
 <header>
   <nav class="nav">
-    <a href="#" class="logo" aria-label="3RL"><i></i><span>3<b>RL</b></span></a>
+    <a href="/" class="logo" aria-label="3RL"><i></i><span>3<b>RL</b></span></a>
     <div class="links">
-      <a href="#servicos" data-i18n="nav1">Serviços</a>
-      <a href="#solucoes" data-i18n="navPacks">Soluções</a>
-      <a href="#verificador" data-i18n="navTools">Ferramentas</a>
-      <a href="#contato" data-i18n="nav3">Contato</a>
+      <a href="/#servicos" data-i18n="nav1">Serviços</a>
+      <a href="/#solucoes" data-i18n="navPacks">Soluções</a>
+      <a href="/ferramentas/" data-i18n="navTools">Ferramentas</a>
+      <a href="/treinamento-antigolpe" data-i18n="navAg">Antigolpe</a>
+      <a href="/#contato" data-i18n="nav3">Contato</a>
     </div>
     <div class="nav-right">
       <button class="lang" id="langBtn" type="button" aria-label="Switch to English"></button>
-      <a href="#contato" class="btn small" data-i18n="navContact">Fale conosco</a>
+      <a href="/#contato" class="btn small" data-i18n="navContact">Fale conosco</a>
     </div>
   </nav>
 </header>
 
+<main>
 <main>
   <div class="hero">
     <div class="reveal">
@@ -399,192 +181,53 @@
     </div>
   </section>
 
-  <section id="verificador">
-    <div class="reveal" style="margin-bottom:40px">
-      <div class="eyebrow" data-i18n="vEyebrow">Ferramenta gratuita</div>
-      <h2 data-i18n="vTitle">O e-mail da sua empresa está protegido?</h2>
-      <p class="sub" data-i18n="vSub">Digite o domínio e veja em segundos se ele tem as proteções que impedem golpistas de enviar e-mails falsos em nome da sua empresa.</p>
+  <section id="ferramentas">
+    <div class="sec-head reveal">
+      <div>
+        <div class="eyebrow" data-i18n="htEyebrow">Ferramentas gratuitas</div>
+        <h2 data-i18n="htTitle">Teste a tecnologia da sua empresa agora</h2>
+        <p class="sub" data-i18n="htSub">Grátis, sem cadastro e direto no navegador.</p>
+      </div>
+      <a class="btn ghost" href="/ferramentas/" data-i18n="htAll">Ver todas as ferramentas</a>
     </div>
-    <div class="checker reveal">
-      <form class="vform" id="vForm" novalidate>
-        <input id="vDomain" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="suaempresa.com.br" aria-label="Domínio">
-        <button class="btn" id="vBtn" type="submit" data-i18n="vBtn">Verificar agora</button>
-      </form>
-      <p class="vhint" data-i18n="vHint">Consultamos apenas registros públicos. Nada é armazenado.</p>
-      <div class="vout" id="vOut" aria-live="polite"></div>
+    <div class="tgrid">
+      <a class="tcard reveal" href="/ferramentas/verificador-de-email">
+        <span class="tic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></svg></span>
+        <h3 data-i18n="tl1">Verificador de e-mail</h3>
+        <p data-i18n="tl1d">Veja em segundos se o e-mail da empresa está protegido contra falsificação.</p>
+        <span class="go" data-i18n="tlGo">Usar grátis →</span>
+      </a>
+      <a class="tcard reveal" href="/ferramentas/teste-de-seguranca">
+        <span class="tic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span>
+        <h3 data-i18n="tl2">Teste de segurança</h3>
+        <p data-i18n="tl2d">13 perguntas para descobrir os pontos que mais expõem a sua empresa.</p>
+        <span class="go" data-i18n="tlGo">Usar grátis →</span>
+      </a>
+      <a class="tcard reveal" href="/ferramentas/calculadora-de-automacao">
+        <span class="tic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2.5" width="14" height="19" rx="2.5"/><path d="M8.5 6.5h7M8.5 11h.01M12 11h.01M15.5 11h.01M8.5 14.5h.01M12 14.5h.01M15.5 14.5h.01M8.5 18h.01M12 18h3.5"/></svg></span>
+        <h3 data-i18n="tl3">Calculadora de automação</h3>
+        <p data-i18n="tl3d">Quanto custam, por ano, as tarefas repetitivas da sua equipe.</p>
+        <span class="go" data-i18n="tlGo">Usar grátis →</span>
+      </a>
+      <a class="tcard reveal" href="/senhas/">
+        <span class="tic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+        <h3 data-i18n="tl4">Gerador de senhas</h3>
+        <p data-i18n="tl4d">Senhas fortes em um clique, criadas no seu aparelho. Funciona offline.</p>
+        <span class="go" data-i18n="tlGo">Usar grátis →</span>
+      </a>
     </div>
-    <a class="toolcard reveal" href="/senhas/">
-      <span class="tic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
-      <div><h3 data-i18n="pwT">Gerador de senhas seguras</h3><p data-i18n="pwD">Senhas fortes em um clique, criadas no seu aparelho. Grátis, sem cadastro e funciona offline.</p></div>
-      <span class="go" data-i18n="pwB">Abrir gerador →</span>
+  </section>
+
+  <section id="antigolpe">
+    <a class="agband reveal" href="/treinamento-antigolpe">
+      <span class="tic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9.5 16.5h-19L12 3z"/><path d="M12 10v4M12 17.2v.1"/></svg></span>
+      <div>
+        <div class="eyebrow" data-i18n="haEyebrow">Treinamento Antigolpe</div>
+        <h2 data-i18n="haTitle">Sua equipe reconhece um golpe?</h2>
+        <p class="sub" data-i18n="haSub">Palestra e simulação prática para que ninguém pague boleto falso, troque a conta de um fornecedor a pedido de golpista ou entregue senhas.</p>
+      </div>
+      <span class="go" data-i18n="haGo">Conhecer o treinamento →</span>
     </a>
-  </section>
-
-  <section id="maturidade">
-    <div class="reveal" style="margin-bottom:40px">
-      <div class="eyebrow" data-i18n="mEyebrow">Teste gratuito</div>
-      <h2 data-i18n="mTitle">Qual é o nível de segurança da sua empresa?</h2>
-      <p class="sub" data-i18n="mSub">Responda 13 perguntas rápidas e descubra os pontos que mais expõem o seu negócio. Leva cerca de 2 minutos.</p>
-    </div>
-    <div class="mat reveal">
-      <form class="panel mqs" id="mForm" novalidate>
-        <fieldset class="mq" data-q="m1" data-w="3" data-pack="k7">
-          <legend><span class="mn">01</span><span data-i18n="m1">As contas de e-mail e sistemas pedem confirmação pelo celular, além da senha?</span></legend>
-          <div class="mopts">
-            <label><input type="radio" name="m1" value="1"><span data-i18n="mYes">Sim</span></label>
-            <label><input type="radio" name="m1" value="0.5"><span data-i18n="mPart">Em parte</span></label>
-            <label><input type="radio" name="m1" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
-          </div>
-        </fieldset>
-        <fieldset class="mq" data-q="m2" data-w="2" data-pack="k7">
-          <legend><span class="mn">02</span><span data-i18n="m2">Cada pessoa tem o próprio login, sem senhas compartilhadas?</span></legend>
-          <div class="mopts">
-            <label><input type="radio" name="m2" value="1"><span data-i18n="mYes">Sim</span></label>
-            <label><input type="radio" name="m2" value="0.5"><span data-i18n="mPart">Em parte</span></label>
-            <label><input type="radio" name="m2" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
-          </div>
-        </fieldset>
-        <fieldset class="mq" data-q="m3" data-w="2" data-pack="k7">
-          <legend><span class="mn">03</span><span data-i18n="m3">As senhas da equipe ficam num cofre de senhas, e não em papel ou planilha?</span></legend>
-          <div class="mopts">
-            <label><input type="radio" name="m3" value="1"><span data-i18n="mYes">Sim</span></label>
-            <label><input type="radio" name="m3" value="0.5"><span data-i18n="mPart">Em parte</span></label>
-            <label><input type="radio" name="m3" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
-          </div>
-        </fieldset>
-        <fieldset class="mq" data-q="m4" data-w="2" data-pack="k7">
-          <legend><span class="mn">04</span><span data-i18n="m4">Quando alguém sai da empresa, os acessos são cancelados no mesmo dia?</span></legend>
-          <div class="mopts">
-            <label><input type="radio" name="m4" value="1"><span data-i18n="mYes">Sim</span></label>
-            <label><input type="radio" name="m4" value="0.5"><span data-i18n="mPart">Em parte</span></label>
-            <label><input type="radio" name="m4" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
-          </div>
-        </fieldset>
-        <fieldset class="mq" data-q="m5" data-w="3" data-pack="k6">
-          <legend><span class="mn">05</span><span data-i18n="m5">Os arquivos e sistemas importantes têm cópia de segurança automática?</span></legend>
-          <div class="mopts">
-            <label><input type="radio" name="m5" value="1"><span data-i18n="mYes">Sim</span></label>
-            <label><input type="radio" name="m5" value="0.5"><span data-i18n="mPart">Em parte</span></label>
-            <label><input type="radio" name="m5" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
-          </div>
-        </fieldset>
-        <fieldset class="mq" data-q="m6" data-w="3" data-pack="k6">
-          <legend><span class="mn">06</span><span data-i18n="m6">Uma das cópias fica separada, fora do alcance de um ataque à rede?</span></legend>
-          <div class="mopts">
-            <label><input type="radio" name="m6" value="1"><span data-i18n="mYes">Sim</span></label>
-            <label><input type="radio" name="m6" value="0.5"><span data-i18n="mPart">Em parte</span></label>
-            <label><input type="radio" name="m6" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
-          </div>
-        </fieldset>
-        <fieldset class="mq" data-q="m7" data-w="2" data-pack="k6">
-          <legend><span class="mn">07</span><span data-i18n="m7">Vocês testaram recuperar um backup nos últimos 6 meses?</span></legend>
-          <div class="mopts">
-            <label><input type="radio" name="m7" value="1"><span data-i18n="mYes">Sim</span></label>
-            <label><input type="radio" name="m7" value="0.5"><span data-i18n="mPart">Em parte</span></label>
-            <label><input type="radio" name="m7" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
-          </div>
-        </fieldset>
-        <fieldset class="mq" data-q="m8" data-w="3" data-pack="k8">
-          <legend><span class="mn">08</span><span data-i18n="m8">A equipe já recebeu orientação sobre golpes por e-mail, WhatsApp e boletos falsos?</span></legend>
-          <div class="mopts">
-            <label><input type="radio" name="m8" value="1"><span data-i18n="mYes">Sim</span></label>
-            <label><input type="radio" name="m8" value="0.5"><span data-i18n="mPart">Em parte</span></label>
-            <label><input type="radio" name="m8" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
-          </div>
-        </fieldset>
-        <fieldset class="mq" data-q="m9" data-w="3" data-pack="k8">
-          <legend><span class="mn">09</span><span data-i18n="m9">Existe uma regra para confirmar pedidos de pagamento ou troca de conta bancária?</span></legend>
-          <div class="mopts">
-            <label><input type="radio" name="m9" value="1"><span data-i18n="mYes">Sim</span></label>
-            <label><input type="radio" name="m9" value="0.5"><span data-i18n="mPart">Em parte</span></label>
-            <label><input type="radio" name="m9" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
-          </div>
-        </fieldset>
-        <fieldset class="mq" data-q="m10" data-w="2" data-pack="k9">
-          <legend><span class="mn">10</span><span data-i18n="m10">Computadores e celulares da empresa recebem atualizações automaticamente?</span></legend>
-          <div class="mopts">
-            <label><input type="radio" name="m10" value="1"><span data-i18n="mYes">Sim</span></label>
-            <label><input type="radio" name="m10" value="0.5"><span data-i18n="mPart">Em parte</span></label>
-            <label><input type="radio" name="m10" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
-          </div>
-        </fieldset>
-        <fieldset class="mq" data-q="m11" data-w="2" data-pack="k9">
-          <legend><span class="mn">11</span><span data-i18n="m11">Existe um plano escrito do que fazer em caso de ataque ou vazamento?</span></legend>
-          <div class="mopts">
-            <label><input type="radio" name="m11" value="1"><span data-i18n="mYes">Sim</span></label>
-            <label><input type="radio" name="m11" value="0.5"><span data-i18n="mPart">Em parte</span></label>
-            <label><input type="radio" name="m11" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
-          </div>
-        </fieldset>
-        <fieldset class="mq" data-q="m12" data-w="2" data-pack="k2">
-          <legend><span class="mn">12</span><span data-i18n="m12">O e-mail da empresa está protegido contra falsificação?</span></legend>
-          <div class="mopts">
-            <label><input type="radio" name="m12" value="1"><span data-i18n="mYes">Sim</span></label>
-            <label><input type="radio" name="m12" value="0.5"><span data-i18n="mPart">Em parte</span></label>
-            <label><input type="radio" name="m12" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
-          </div>
-        </fieldset>
-        <fieldset class="mq" data-q="m13" data-w="2" data-pack="k5">
-          <legend><span class="mn">13</span><span data-i18n="m13">Vocês sabem quais dados pessoais de clientes guardam e quem tem acesso a eles?</span></legend>
-          <div class="mopts">
-            <label><input type="radio" name="m13" value="1"><span data-i18n="mYes">Sim</span></label>
-            <label><input type="radio" name="m13" value="0.5"><span data-i18n="mPart">Em parte</span></label>
-            <label><input type="radio" name="m13" value="0"><span data-i18n="mNo">Não ou não sei</span></label>
-          </div>
-        </fieldset>
-      </form>
-      <div class="panel result mres" aria-live="polite">
-        <div class="r-label" data-i18n="mResLabel">Seu resultado</div>
-        <div class="mprog"><span id="mBar"></span></div>
-        <div id="mOut"></div>
-        <a class="btn" id="mCta" href="mailto:adm@3rl.com.br" hidden data-i18n="mCta">Quero melhorar esses pontos</a>
-        <button class="mreset" id="mReset" type="button" hidden data-i18n="mReset">Refazer o teste</button>
-        <p class="note" data-i18n="mNote">Resultado indicativo, calculado só com as suas respostas. Nada é enviado nem armazenado.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="calculadora">
-    <div class="reveal" style="margin-bottom:40px">
-      <div class="eyebrow" data-i18n="calcEyebrow">Calculadora</div>
-      <h2 data-i18n="calcTitle">Quanto custam as tarefas manuais?</h2>
-      <p class="sub" data-i18n="calcSub">Descubra quanto tempo e dinheiro a sua equipe gasta com tarefas repetitivas, aquelas que poderiam ser automatizadas.</p>
-    </div>
-    <div class="calc reveal">
-      <div class="panel">
-        <div class="field">
-          <div class="field-top"><label for="qPeople" data-i18n="fPeople">Pessoas na equipe</label><div class="val"><input type="number" id="nPeople" min="1" max="500" value="5" inputmode="numeric" aria-label="Pessoas"></div></div>
-          <input type="range" id="qPeople" min="1" max="100" value="5">
-        </div>
-        <div class="field">
-          <div class="field-top"><label for="qHours" data-i18n="fHours">Horas por semana, por pessoa, em tarefas repetitivas</label><div class="val"><input type="number" id="nHours" min="0" max="60" value="8" inputmode="decimal" aria-label="Horas"><span>h</span></div></div>
-          <input type="range" id="qHours" min="0" max="40" value="8">
-          <small data-i18n="fHoursHint">Ex.: copiar dados entre sistemas, montar relatórios, conferir planilhas, responder e-mails padrão.</small>
-        </div>
-        <div class="field">
-          <div class="field-top"><label for="qCost" data-i18n="fCost">Custo médio da hora de trabalho</label><div class="val"><span id="cur">R$</span><input type="number" id="nCost" min="0" max="2000" value="50" inputmode="decimal" aria-label="Custo"></div></div>
-          <input type="range" id="qCost" min="10" max="500" step="5" value="50">
-          <small data-i18n="fCostHint">Inclua salário e encargos. Na dúvida, use um valor aproximado.</small>
-        </div>
-        <div class="field">
-          <div class="field-top"><label for="qAuto" data-i18n="fAuto">Parte que você acredita ser automatizável</label><div class="val"><input type="number" id="nAuto" min="0" max="100" value="50" inputmode="numeric" aria-label="Percentual"><span>%</span></div></div>
-          <input type="range" id="qAuto" min="0" max="100" step="5" value="50">
-        </div>
-      </div>
-      <div class="panel result" aria-live="polite">
-        <div class="r-label" data-i18n="rYear">Custo por ano com tarefas repetitivas</div>
-        <div class="big" id="oYear">R$ 0</div>
-        <div class="r-sub" id="oMonthLine"></div>
-        <div class="r-grid">
-          <div class="r-box"><span data-i18n="rHours">Horas por mês</span><b id="oHours">0 h</b></div>
-          <div class="r-box"><span data-i18n="rDays">Dias de trabalho por mês</span><b id="oDays">0</b></div>
-          <div class="r-box hl"><span data-i18n="rFreeH">Horas liberadas por ano</span><b id="oFreeH">0 h</b></div>
-          <div class="r-box hl"><span data-i18n="rSave">Potencial por ano</span><b id="oSave">R$ 0</b></div>
-        </div>
-        <a class="btn" id="calcCta" href="mailto:adm@3rl.com.br" data-i18n="calcCta">Quero conversar sobre isso</a>
-        <p class="note" data-i18n="calcNote">Estimativa ilustrativa, calculada só com os números que você informou. Não é uma promessa de resultado: o potencial real depende de cada processo.</p>
-      </div>
-    </div>
   </section>
 
   <section id="como">
@@ -619,346 +262,34 @@
 </div>
 
 <footer>
-  <div class="wrap"><div>
-    <span>© <span id="yr">2026</span> 3RL</span>
-    <span data-i18n="foot">Consultoria, automação, tecnologia e desenvolvimento</span>
-  </div></div>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <a href="/" class="logo" aria-label="3RL"><i></i><span>3<b>RL</b></span></a>
+        <p data-i18n="foot">Consultoria, automação, tecnologia e desenvolvimento</p>
+        <a class="fmail" href="mailto:adm@3rl.com.br">adm@3rl.com.br</a>
+      </div>
+      <div>
+        <h3 data-i18n="fCompany">Empresa</h3>
+        <a href="/#servicos" data-i18n="nav1">Serviços</a>
+        <a href="/#solucoes" data-i18n="navPacks">Soluções</a>
+        <a href="/treinamento-antigolpe" data-i18n="fAg">Treinamento Antigolpe</a>
+        <a href="/#contato" data-i18n="nav3">Contato</a>
+      </div>
+      <div>
+        <h3 data-i18n="navTools">Ferramentas</h3>
+        <a href="/ferramentas/verificador-de-email" data-i18n="tl1">Verificador de e-mail</a>
+        <a href="/ferramentas/teste-de-seguranca" data-i18n="tl2">Teste de segurança</a>
+        <a href="/ferramentas/calculadora-de-automacao" data-i18n="tl3">Calculadora de automação</a>
+        <a href="/senhas/" data-i18n="tl4">Gerador de senhas</a>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>© <span id="yr">2026</span> 3RL</span>
+      <a href="/privacidade" data-i18n="fPriv">Privacidade</a>
+    </div>
+  </div>
 </footer>
-
-<script>
-  const FLAG_UK = '<svg viewBox="0 0 60 30" aria-hidden="true"><clipPath id="uk-s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="uk-t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#uk-s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#uk-t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg>';
-  const FLAG_BR = '<svg viewBox="0 0 30 21" aria-hidden="true"><rect width="30" height="21" fill="#009c3b"/><path d="M15 2.5 27.5 10.5 15 18.5 2.5 10.5z" fill="#ffdf00"/><circle cx="15" cy="10.5" r="4.6" fill="#002776"/><path d="M10.6 9.6c3-.6 6.2-.2 8.9 1.2" stroke="#fff" stroke-width=".8" fill="none"/></svg>';
-
-  const T = {
-    en: {
-      nav1:"Services", navCalc:"Calculator", navPacks:"Solutions", navTools:"Tools", nav2:"How we work", nav3:"Contact",
-      packsEyebrow:"Solutions", packsTitle:"Ready-to-start packages", packsSub:"Clear scopes, so you know exactly what you will get. Each package is tailored to your business.",
-      price:"Custom quote", packBtn:"Request a quote", k1badge:"Starting point",
-      k1t:"Digital Presence", k1d:"Everything your company needs to look professional online.", k1i1:"Domain registration and setup", k1i2:"Business email protected against spoofing", k1i3:"Responsive company website in Portuguese and English", k1i4:"Google setup so you show up in searches",
-      k2t:"Secure Email", k2d:"Protect your brand from fake emails and scams that use your company's name.", k2i1:"Full check of your email protection", k2i2:"Fixes to your domain settings", k2i3:"Two-step verification on accounts", k2i4:"Team guidance",
-      k3t:"Essential Automation", k3d:"One manual routine turned into a reliable automated workflow.", k3i1:"Mapping of the current process", k3i2:"Automation of spreadsheets, reports or alerts", k3i3:"Testing and documentation", k3i4:"Follow-up after delivery",
-      k4t:"Management Dashboard", k4d:"Your business's key numbers in one place.", k4i1:"Definition of key indicators", k4i2:"Integration of data sources", k4i3:"Always up-to-date visual dashboard", k4i4:"Access from computer and phone",
-      k5t:"Privacy & LGPD", k5d:"Data protection best practices to operate more safely.", k5i1:"Mapping of personal data processed", k5i2:"Privacy policy for the website", k5i3:"Security and access best practices", k5i4:"Team guidance",
-      k6t:"Ransomware-proof Backup", k6d:"Your files back, even after an attack.", k6i1:"Automatic copies of important files and systems", k6i2:"One protected copy, out of attackers' reach", k6i3:"Recovery test with report", k6i4:"Monthly follow-up", k7t:"Secure Access", k7d:"Only the right people get in, and each sees only what they need.", k7i1:"Phone confirmation on key accounts", k7i2:"Password vault for the team", k7i3:"Review of who can access what", k7i4:"Routine for staff joining and leaving", k8t:"Anti-Scam Training", k8d:"Your team ready to spot scams before they cost you.", k8i1:"Hands-on talk with real scam examples", k8i2:"Fake email simulation, authorized by the company", k8i3:"Rule to confirm payments and bank detail changes", k8i4:"Report with the points to watch", k9t:"Incident Plan", k9d:"Clear rules and a ready plan to act if something goes wrong.", k9i1:"Security policy in plain language", k9i2:"Step-by-step for attacks and data leaks", k9i3:"Defined contacts and responsibilities", k9i4:"Yearly plan review", m1:"Do email and system accounts ask for phone confirmation in addition to the password?", m2:"Does each person have their own login, with no shared passwords?", m3:"Are the team's passwords kept in a password vault, not on paper or spreadsheets?", m4:"When someone leaves the company, is their access removed the same day?", m5:"Do important files and systems have automatic backups?", m6:"Is one of the copies kept separate, out of reach of an attack on the network?", m7:"Have you tested restoring a backup in the last 6 months?", m8:"Has the team been trained on email, WhatsApp and fake invoice scams?", m9:"Is there a rule for confirming payment requests or bank detail changes?", m10:"Do company computers and phones get updates automatically?", m11:"Is there a written plan for what to do in case of an attack or data leak?", m12:"Is the company's email protected against spoofing?", m13:"Do you know which customer personal data you keep and who can access it?", mEyebrow:"Free test", mTitle:"How secure is your company?", mSub:"Answer 13 quick questions and find the points that expose your business the most. It takes about 2 minutes.", mYes:"Yes", mPart:"Partly", mNo:"No or not sure", mResLabel:"Your result", mCta:"I want to improve these points", mReset:"Retake the test", mNote:"Indicative result, calculated only from your answers. Nothing is sent or stored.",
-      vEyebrow:"Free tool", vTitle:"Is your company's email protected?", vSub:"Enter your domain and see in seconds whether it has the protections that stop scammers from sending fake emails in your company's name.",
-      vBtn:"Check now", vHint:"We only check public records. Nothing is stored.", pwT:"Secure password generator", pwD:"Strong passwords in one click, created on your device. Free, no sign-up, works offline.", pwB:"Open generator →",
-      calcEyebrow:"Calculator", calcTitle:"What do manual tasks cost you?", calcSub:"Find out how much time and money your team spends on repetitive tasks, the kind that could be automated.",
-      fPeople:"People on the team", fHours:"Hours per week, per person, on repetitive tasks", fHoursHint:"E.g. copying data between systems, building reports, checking spreadsheets, answering standard emails.",
-      fCost:"Average cost of one work hour", fCostHint:"Include salary and overhead. If unsure, use a rough figure.", fAuto:"Share you believe could be automated",
-      rYear:"Yearly cost of repetitive tasks", rHours:"Hours per month", rDays:"Work days per month", rFreeH:"Hours freed per year", rSave:"Potential per year",
-      calcCta:"Let's talk about it", calcNote:"Illustrative estimate, calculated only from the numbers you entered. Not a promise of results: real potential depends on each process.",
-      navContact:"Contact us", pill:"Remote service worldwide",
-      h1:'Technology serving <em>your next step</em>.',
-      lead:"Consulting, automation, technology and development for those who want to make better decisions, work with less friction and grow safely.",
-      cta1:"Get in touch", cta2:"Our services",
-      t1:"Assessment and planning", t2:"Less manual work", t3:"Secure, scalable foundation", t4:"Custom solutions",
-      svcEyebrow:"Services", svcTitle:"What we do", svcSub:"Hands-on work, from assessment to delivery, focused on practical results.",
-      s1t:"Consulting", s1d:"Assessment and planning so you can decide with confidence where and how to invest in technology.",
-      s1b1:"Assessment of current processes, systems and tools", s1b2:"Action plan and technology roadmap", s1b3:"Selection of platforms, vendors and solutions", s1b4:"Data-driven decision support",
-      s2t:"Automation", s2d:"We eliminate manual, repetitive work so your team can focus on what really matters.",
-      s2b1:"Automation of routines and workflows", s2b2:"Integration between systems, spreadsheets and email", s2b3:"Automatic reports, alerts and notifications", s2b4:"AI assistants and agents for internal routines",
-      s3t:"Technology", s3d:"A well-configured, secure technology foundation, ready to grow with your business.",
-      s3b1:"Domain, business email and cloud services", s3b2:"Information security and best practices", s3b3:"Rollout of productivity and AI tools", s3b4:"Ongoing technical guidance and support",
-      s4t:"Development", s4d:"We build custom digital solutions, from your company website to the system that organizes your operation.",
-      s4b1:"Company websites and landing pages", s4b2:"Custom web systems and applications", s4b3:"Dashboards and internal tools", s4b4:"Custom APIs and integrations",
-      howEyebrow:"Process", howTitle:"How we work", howSub:"A simple, transparent process.",
-      p1t:"Assessment", p1d:"We understand your challenge, its context and what needs to change.",
-      p2t:"Proposal", p2d:"We present the path, scope and timeline clearly.",
-      p3t:"Execution", p3d:"We put it into practice and follow up until results show.",
-      ctEyebrow:"Contact", ctTitle:"Let's talk?", ctSub:"Tell us about your challenge. We reply by email.",
-      world:"Remote service for clients worldwide", ctBtn:"Send an email",
-      foot:"Consulting, automation, technology and development"
-    }
-  };
-  const pt = {};
-  document.querySelectorAll("[data-i18n]").forEach(e=>pt[e.dataset.i18n]=e.textContent);
-  document.querySelectorAll("[data-i18n-html]").forEach(e=>pt[e.dataset.i18nHtml]=e.innerHTML);
-  T.pt = pt;
-
-  const langBtn = document.getElementById("langBtn");
-  let lang = "pt";
-  function apply(l){
-    lang = l;
-    document.querySelectorAll("[data-i18n]").forEach(e=>e.textContent=T[l][e.dataset.i18n]);
-    document.querySelectorAll("[data-i18n-html]").forEach(e=>e.innerHTML=T[l][e.dataset.i18nHtml]);
-    document.documentElement.lang = l==="pt" ? "pt-BR" : "en";
-    langBtn.innerHTML = l==="pt" ? FLAG_UK+"EN" : FLAG_BR+"PT";
-    langBtn.setAttribute("aria-label", l==="pt" ? "Switch to English" : "Mudar para português");
-    try{localStorage.setItem("lang",l)}catch(e){}
-    if(window.calc) window.calc();
-    if(window.vRender) window.vRender();
-    if(window.packLinks) window.packLinks();
-    if(window.mRender) window.mRender();
-  }
-  langBtn.addEventListener("click",()=>apply(lang==="pt"?"en":"pt"));
-  langBtn.innerHTML = FLAG_UK+"EN";
-  try{
-    const saved = localStorage.getItem("lang");
-    if(saved==="en" || (!saved && !(navigator.language||"").toLowerCase().startsWith("pt"))) apply("en");
-  }catch(e){}
-
-  // vitrine deslizante
-  const track = document.getElementById("track");
-  const slides = [...track.children];
-  const dotsBox = document.getElementById("dots");
-  const pad = () => parseFloat(getComputedStyle(track).paddingLeft) || 0;
-  const pos = i => slides[i].offsetLeft - slides[0].offsetLeft;
-  const maxScroll = () => track.scrollWidth - track.clientWidth;
-  function lastIndex(){ for(let i=0;i<slides.length;i++) if(pos(i) >= maxScroll()-2) return i; return slides.length-1; }
-  function current(){
-    if(track.scrollLeft >= maxScroll()-2) return lastIndex();
-    let best=0, d=Infinity;
-    slides.forEach((_,i)=>{ const x=Math.abs(pos(i)-track.scrollLeft); if(x<d){d=x;best=i;} });
-    return best;
-  }
-  function buildDots(){
-    dotsBox.innerHTML="";
-    for(let i=0;i<=lastIndex();i++){
-      const b=document.createElement("button"); b.className="dot"; b.type="button"; b.setAttribute("aria-label","Slide "+(i+1));
-      b.onclick=()=>{ go(i); restart(); }; dotsBox.appendChild(b);
-    }
-    mark();
-  }
-  function go(i){ const L=lastIndex(); if(i>L) i=0; if(i<0) i=L; track.scrollTo({left:Math.min(pos(i),maxScroll())}); }
-  function mark(){ const c=current(); [...dotsBox.children].forEach((d,i)=>d.classList.toggle("on",i===c)); }
-  track.addEventListener("scroll",()=>requestAnimationFrame(mark),{passive:true});
-  window.addEventListener("resize",buildDots);
-  document.getElementById("next").onclick=()=>{ go(current()+1); restart(); };
-  document.getElementById("prev").onclick=()=>{ go(current()-1); restart(); };
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let timer=null, paused=false;
-  function restart(){ clearInterval(timer); if(!reduce) timer=setInterval(()=>{ if(!paused && !document.hidden) go(current()+1); },5000); }
-  track.addEventListener("mouseenter",()=>paused=true);
-  track.addEventListener("mouseleave",()=>paused=false);
-  track.addEventListener("touchstart",()=>{paused=true;},{passive:true});
-  track.addEventListener("touchend",()=>{ setTimeout(()=>paused=false,4000); },{passive:true});
-  buildDots(); restart();
-
-
-
-  // pacotes: link de orçamento
-  window.packLinks=function(){
-    document.querySelectorAll("[data-pack]").forEach(a=>{
-      const name=document.querySelector(`[data-i18n="${a.dataset.pack}t"]`).textContent;
-      const en=lang==="en";
-      a.href="mailto:adm@3rl.com.br?subject="+encodeURIComponent((en?"Quote - ":"Orçamento - ")+name)+"&body="+encodeURIComponent(en?`Hello! I would like a quote for the "${name}" package.\n\nCompany:\nWebsite/domain:\nDetails:`:`Olá! Gostaria de um orçamento do pacote "${name}".\n\nEmpresa:\nSite/domínio:\nDetalhes:`);
-    });
-  };
-  window.packLinks();
-
-  // verificador de e-mail
-  (function(){
-    const $=id=>document.getElementById(id);
-    const SEL=["google","default","selector1","selector2","zmail","k1","k2","k3","s1","s2","dkim","mail","smtp","mx","sig1","titan1","hostinger","locaweb","kinghost","umbler","mandrill","mailjet","sendgrid","s1024","everlytickey1","protonmail","fm1","dkim1","key1"];
-    async function dns(name,type){
-      const urls=["https://dns.google/resolve?name="+encodeURIComponent(name)+"&type="+type,"https://cloudflare-dns.com/dns-query?name="+encodeURIComponent(name)+"&type="+type];
-      for(const u of urls){ try{ const r=await fetch(u,{headers:{accept:"application/dns-json"}}); if(r.ok) return await r.json(); }catch(e){} }
-      throw new Error("dns");
-    }
-    const txts=j=>(j.Answer||[]).filter(a=>a.type===16).map(a=>{const m=String(a.data).match(/"((?:[^"\\]|\\.)*)"/g);return m?m.map(x=>x.slice(1,-1)).join(""):String(a.data);});
-    function clean(v){
-      v=(v||"").trim().toLowerCase();
-      if(v.includes("@")) v=v.split("@").pop();
-      v=v.replace(/^[a-z]+:\/\//,"").split(/[\/?#:\s]/)[0].replace(/\.$/,"");
-      if(v.startsWith("www.")) v=v.slice(4);
-      return /^(?=.{4,253}$)([a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}$/.test(v)?v:null;
-    }
-    const PROV=[[/google|googlemail/,"Google Workspace"],[/outlook\.com|office365|protection\.outlook/,"Microsoft 365"],[/zoho/,"Zoho Mail"],[/titan\.email/,"Titan"],[/locaweb/,"Locaweb"],[/hostinger/,"Hostinger"],[/kinghost/,"KingHost"],[/umbler/,"Umbler"],[/secureserver/,"GoDaddy"],[/protonmail|proton\.ch/,"Proton Mail"],[/uol\.com\.br|uolhost/,"UOL Host"],[/hostgator/,"HostGator"],[/icloud/,"iCloud"],[/yahoo/,"Yahoo"],[/registro\.br/,"Registro.br"]];
-    let last=null;
-    const L={
-      pt:{
-        mx_ok:p=>["Recebimento de e-mail",p?`Provedor identificado: ${p}.`:"Servidores de e-mail encontrados."],
-        mx_none:["Recebimento de e-mail","Nenhum servidor de e-mail encontrado para este domínio."],
-        spf_good:["Autorização de envio ativa","O domínio define quais servidores podem enviar e-mails em seu nome."],
-        spf_all:["Autorização de envio permissiva","A configuração atual libera qualquer servidor para enviar e-mails em nome do domínio."],
-        spf_noall:["Autorização de envio incompleta","A configuração não define o que fazer com servidores não autorizados."],
-        spf_multi:["Autorização de envio em conflito","Há configurações duplicadas, o que invalida a proteção."],
-        spf_none:["Autorização de envio ausente","Qualquer servidor pode tentar enviar e-mails em nome do domínio."],
-        dkim_good:s=>["Assinatura digital ativa","Os e-mails do domínio saem com assinatura digital."],
-        dkim_unk:["Assinatura digital não confirmada","Não conseguimos confirmar a assinatura digital dos e-mails. Vale uma verificação mais detalhada."],
-        dmarc_good:p=>["Bloqueio de e-mails falsos ativo","E-mails falsos em nome do domínio são bloqueados ou vão para o spam."],
-        dmarc_none:["Bloqueio de e-mails falsos desligado","O domínio apenas monitora: e-mails falsos ainda chegam ao destinatário."],
-        dmarc_miss:["Bloqueio de e-mails falsos ausente","Os provedores não sabem o que fazer com e-mails falsos em nome do domínio."],
-        v_good:["Bem protegido","O domínio tem as três proteções principais ativas."],
-        v_warn:["Proteção parcial","Existem pontos que deixam brechas para e-mails falsos."],
-        v_bad:["Vulnerável a falsificação","Golpistas podem enviar e-mails se passando pela empresa."],
-        cta_fix:"Quer que a 3RL corrija isso? O pacote E-mail Seguro resolve esses pontos.",
-        cta_ok:"Tudo certo por aqui. Quer revisar outras áreas de tecnologia da empresa?",
-        btn_fix:"Quero corrigir", btn_ok:"Falar com a 3RL",
-        bad_domain:"Digite um domínio válido, por exemplo: suaempresa.com.br",
-        nx:"Este domínio não existe ou não está publicado.",
-        err:"Não foi possível fazer a verificação agora. Tente novamente em instantes.",
-        checking:"Verificando…", subj:"Verificação de e-mail - ",
-        body:(d,r)=>`Olá! Usei o verificador de e-mail do site da 3RL.\n\nDomínio: ${d}\n${r}\n\nGostaria de ajuda para corrigir.`
-      },
-      en:{
-        mx_ok:p=>["Incoming email",p?`Provider detected: ${p}.`:"Mail servers found."],
-        mx_none:["Incoming email","No mail server found for this domain."],
-        spf_good:["Sender authorization active","The domain defines which servers may send email on its behalf."],
-        spf_all:["Permissive sender authorization","The current setup lets any server send email on behalf of the domain."],
-        spf_noall:["Incomplete sender authorization","The setup does not say what to do with unauthorized servers."],
-        spf_multi:["Conflicting sender authorization","Duplicate settings cancel out the protection."],
-        spf_none:["Sender authorization missing","Any server can try to send email on behalf of the domain."],
-        dkim_good:s=>["Digital signature active","Emails from the domain are digitally signed."],
-        dkim_unk:["Digital signature not confirmed","We could not confirm a digital signature on the emails. It is worth a closer look."],
-        dmarc_good:p=>["Fake email blocking active","Fake emails using the domain are blocked or sent to spam."],
-        dmarc_none:["Fake email blocking off","The domain only monitors: fake emails still reach recipients."],
-        dmarc_miss:["Fake email blocking missing","Mail providers do not know what to do with fake emails using the domain."],
-        v_good:["Well protected","The domain has all three main protections active."],
-        v_warn:["Partially protected","There are gaps that let fake emails through."],
-        v_bad:["Open to spoofing","Scammers can send emails pretending to be the company."],
-        cta_fix:"Want 3RL to fix this? The Secure Email package covers these points.",
-        cta_ok:"All good here. Want to review other technology areas of your company?",
-        btn_fix:"Fix it for me", btn_ok:"Talk to 3RL",
-        bad_domain:"Enter a valid domain, e.g. yourcompany.com",
-        nx:"This domain does not exist or is not published.",
-        err:"The check could not be completed right now. Please try again shortly.",
-        checking:"Checking…", subj:"Email check - ",
-        body:(d,r)=>`Hello! I used the email checker on the 3RL website.\n\nDomain: ${d}\n${r}\n\nI would like help fixing it.`
-      }
-    };
-    const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-    const ICON={good:"✓",warn:"!",bad:"✕",unk:"?",info:"i"};
-    function msg(t){ $("vOut").innerHTML=`<div class="vrow s-info"><div class="dot2">i</div><div><span>${esc(t)}</span></div></div>`; }
-    window.vRender=function(){
-      if(!last) return;
-      const T=L[lang];
-      if(last.kind==="msg"){ msg(T[last.key]); return; }
-      const r=last, rows=[];
-      const row=(st,[t,d],code)=>rows.push({st,t,d,code});
-      row(r.spf.st, T["spf_"+r.spf.k], r.spf.rec);
-      row(r.dkim.st, r.dkim.st==="good"?T.dkim_good(r.dkim.sel.join(", ")):T.dkim_unk, null);
-      row(r.dmarc.st, r.dmarc.k==="good"?T.dmarc_good(r.dmarc.p):T["dmarc_"+r.dmarc.k], r.dmarc.rec);
-      row(r.mx.ok?"info":"warn", r.mx.ok?T.mx_ok(r.mx.prov):T.mx_none, null);
-      const v=T["v_"+r.verdict];
-      const resumo=rows.slice(0,3).map(x=>`- ${x.t}`).join("\n");
-      const href="mailto:adm@3rl.com.br?subject="+encodeURIComponent(T.subj+r.domain)+"&body="+encodeURIComponent(T.body(r.domain,resumo));
-      $("vOut").innerHTML=
-        `<div class="verdict v-${r.verdict}"><div class="vi">${ICON[r.verdict]}</div><div><h3>${esc(v[0])} · ${esc(r.domain)}</h3><p>${esc(v[1])}</p></div></div>`+
-        `<div class="vrows">`+rows.map(x=>`<div class="vrow s-${x.st}"><div class="dot2">${ICON[x.st]}</div><div><b>${esc(x.t)}</b><span>${esc(x.d)}</span></div></div>`).join("")+`</div>`+
-        `<div class="vcta"><p>${esc(r.verdict==="good"?T.cta_ok:T.cta_fix)}</p><a class="btn" href="${href}">${esc(r.verdict==="good"?T.btn_ok:T.btn_fix)}</a></div>`;
-    };
-    async function check(domain){
-      const [root,mx,dm]=await Promise.all([dns(domain,"TXT"),dns(domain,"MX"),dns("_dmarc."+domain,"TXT")]);
-      if(root.Status===3 && mx.Status===3) return {kind:"msg",key:"nx"};
-      const spfs=txts(root).filter(t=>/^v=spf1(\s|$)/i.test(t));
-      let spf;
-      if(!spfs.length) spf={st:"bad",k:"none"};
-      else if(spfs.length>1) spf={st:"bad",k:"multi",rec:spfs.join(" | ")};
-      else{ const t=spfs[0].toLowerCase().trim(), fin=t.split(/\s+/).pop();
-        if(/^[+?]?all$/.test(fin)) spf={st:"warn",k:"all",rec:spfs[0]};
-        else if(/^[-~]all$/.test(fin)||/redirect=/.test(t)) spf={st:"good",k:"good",rec:spfs[0]};
-        else spf={st:"warn",k:"noall",rec:spfs[0]}; }
-      const dms=txts(dm).filter(t=>/^v=dmarc1/i.test(t));
-      let dmarc;
-      if(!dms.length) dmarc={st:"bad",k:"miss"};
-      else{ const p=((dms[0].match(/(?:^|;)\s*p\s*=\s*(\w+)/i)||[])[1]||"none").toLowerCase();
-        dmarc=(p==="quarantine"||p==="reject")?{st:"good",k:"good",p,rec:dms[0]}:{st:"warn",k:"none",p,rec:dms[0]}; }
-      const sels=await Promise.all(SEL.map(async s=>{ try{ const j=await dns(s+"._domainkey."+domain,"TXT"); const a=j.Answer||[];
-        return a.some(x=>x.type===5||/p=/i.test(String(x.data)))?s:null; }catch(e){return null;} }));
-      const found=sels.filter(Boolean);
-      const dkim=found.length?{st:"good",sel:found}:{st:"unk"};
-      const mxs=(mx.Answer||[]).filter(a=>a.type===15).map(a=>String(a.data).toLowerCase());
-      let prov=null; for(const [re,n] of PROV){ if(mxs.some(m=>re.test(m))){prov=n;break;} }
-      const sts=[spf.st,dmarc.st,dkim.st];
-      const verdict=sts.includes("bad")?"bad":(sts.every(x=>x==="good")?"good":"warn");
-      return {kind:"res",domain,spf,dkim,dmarc,mx:{ok:mxs.length>0,prov},verdict};
-    }
-    $("vForm").addEventListener("submit",async e=>{
-      e.preventDefault();
-      const d=clean($("vDomain").value), btn=$("vBtn");
-      if(!d){ last={kind:"msg",key:"bad_domain"}; window.vRender(); return; }
-      $("vDomain").value=d;
-      const label=btn.textContent; btn.disabled=true; btn.innerHTML=`<span class="spin"></span>${esc(L[lang].checking)}`;
-      try{ last=await check(d); }catch(err){ last={kind:"msg",key:"err"}; }
-      btn.disabled=false; btn.textContent=label; window.vRender();
-    });
-  })();
-
-  // calculadora
-  (function(){
-    const pairs=[["qPeople","nPeople"],["qHours","nHours"],["qCost","nCost"],["qAuto","nAuto"]].map(([r,n])=>[document.getElementById(r),document.getElementById(n)]);
-    const $=id=>document.getElementById(id);
-    const paint=r=>r.style.setProperty("--p",((r.value-r.min)/(r.max-r.min)*100)+"%");
-    pairs.forEach(([r,n])=>{
-      r.addEventListener("input",()=>{n.value=r.value;paint(r);window.calc();});
-      n.addEventListener("input",()=>{const v=parseFloat(n.value);if(!isNaN(v)){r.value=Math.min(Math.max(v,+r.min),+r.max);paint(r);}window.calc();});
-      paint(r);
-    });
-    const num=id=>{const v=parseFloat($(id).value);return isNaN(v)||v<0?0:v;};
-    window.calc=function(){
-      const en=lang==="en", loc=en?"en-US":"pt-BR", cur=en?"USD":"BRL";
-      $("cur").textContent=en?"$":"R$";
-      const money=v=>new Intl.NumberFormat(loc,{style:"currency",currency:cur,maximumFractionDigits:0}).format(v);
-      const int=v=>new Intl.NumberFormat(loc,{maximumFractionDigits:0}).format(v);
-      const p=num("nPeople"), h=num("nHours"), c=num("nCost"), a=Math.min(num("nAuto"),100)/100;
-      const hYear=p*h*52, hMonth=hYear/12, cYear=hYear*c, cMonth=cYear/12;
-      $("oYear").textContent=money(cYear);
-      $("oMonthLine").textContent=(en?"That is about ":"Isso dá cerca de ")+money(cMonth)+(en?" per month.":" por mês.");
-      $("oHours").textContent=int(hMonth)+" h";
-      $("oDays").textContent=int(hMonth/8);
-      $("oFreeH").textContent=int(hYear*a)+" h";
-      $("oSave").textContent=money(cYear*a);
-      const subj=en?"Automation - calculator":"Automação - calculadora";
-      const body=en
-        ?`Hello! I used the calculator on the 3RL website.\n\nTeam: ${p} people\nRepetitive tasks: ${h} h/week per person\nCost per hour: ${money(c)}\nEstimated yearly cost: ${money(cYear)}\n\nI would like to talk about automating these tasks.`
-        :`Olá! Usei a calculadora do site da 3RL.\n\nEquipe: ${p} pessoas\nTarefas repetitivas: ${h} h/semana por pessoa\nCusto da hora: ${money(c)}\nCusto estimado por ano: ${money(cYear)}\n\nGostaria de conversar sobre a automação dessas tarefas.`;
-      $("calcCta").href="mailto:adm@3rl.com.br?subject="+encodeURIComponent(subj)+"&body="+encodeURIComponent(body);
-    };
-    window.calc();
-  })();
-
-  // teste de maturidade
-  (function(){
-    const form=document.getElementById("mForm"); if(!form) return;
-    const qs=[...form.querySelectorAll(".mq")];
-    const RISK={"k7": {"pt": "Contas sem proteção extra são a porta de entrada mais comum de invasões.", "en": "Accounts without extra protection are the most common way in for intruders."}, "k6": {"pt": "Sem cópias protegidas e testadas, um ataque pode apagar anos de trabalho.", "en": "Without protected and tested copies, an attack can wipe out years of work."}, "k8": {"pt": "Golpes que enganam a equipe causam prejuízo direto, sem invadir nada.", "en": "Scams that fool the team cause direct losses without breaking into anything."}, "k9": {"pt": "Sem regras e sem plano, um incidente vira improviso e o dano cresce.", "en": "Without rules or a plan, an incident turns into improvisation and damage grows."}, "k2": {"pt": "Golpistas podem enviar e-mails falsos em nome da empresa.", "en": "Scammers can send fake emails in the company's name."}, "k5": {"pt": "Dados pessoais sem controle trazem risco de vazamento e de sanções da LGPD.", "en": "Uncontrolled personal data brings leak risk and LGPD penalties."}};
-    const $=id=>document.getElementById(id);
-    const esc=t=>t.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-    window.mRender=function(){
-      const en=lang==="en";
-      let tw=0,got=0,answered=0; const gaps={};
-      qs.forEach(q=>{
-        const w=+q.dataset.w, c=q.querySelector("input:checked");
-        q.classList.toggle("done",!!c);
-        tw+=w;
-        if(c){answered++; const v=+c.value; got+=w*v; if(v<1){const p=q.dataset.pack; gaps[p]=(gaps[p]||0)+w*(1-v);}}
-      });
-      $("mBar").style.width=(answered/qs.length*100)+"%";
-      const out=$("mOut"), cta=$("mCta"), rs=$("mReset");
-      if(answered<qs.length){
-        out.innerHTML='<p class="r-sub">'+(en?`${answered} of ${qs.length} answered. Answer all questions to see your score.`:`${answered} de ${qs.length} respondidas. Responda todas para ver a sua nota.`)+'</p>';
-        cta.hidden=true; rs.hidden=answered===0; return;
-      }
-      const score=Math.round(got/tw*100);
-      const lvl=score>=75?(en?"Well on track":"Bem encaminhada"):score>=45?(en?"Evolving":"Em evolução"):(en?"Exposed":"Exposta");
-      const lvlTxt=score>=75?(en?"Good foundations. A few adjustments make the company even harder to hit.":"Boa base. Alguns ajustes deixam a empresa ainda mais difícil de atingir.")
-        :score>=45?(en?"There is protection, but with gaps that attackers often exploit.":"Existe proteção, mas com brechas que os golpistas costumam explorar.")
-        :(en?"The company is exposed to the most common attacks and scams.":"A empresa está exposta aos ataques e golpes mais comuns.");
-      const top=Object.entries(gaps).sort((a,b)=>b[1]-a[1]).slice(0,3);
-      const name=k=>document.querySelector(`[data-i18n="${k}t"]`).textContent;
-      let h=`<div class="big">${score}<span style="font-size:.45em">/100</span></div><div class="mlvl">${esc(lvl)}</div><p class="r-sub">${esc(lvlTxt)}</p>`;
-      if(top.length){
-        h+=`<ul class="mpri">`+top.map(([k])=>`<li><b>${esc(name(k))}</b>${esc(RISK[k][en?"en":"pt"])} <a href="#solucoes">${en?"See package →":"Ver pacote →"}</a></li>`).join("")+`</ul>`;
-      }
-      out.innerHTML=h;
-      const subj=(en?"Security test - score ":"Teste de segurança - nota ")+score;
-      const body=en
-        ?`Hello! I took the security test on the 3RL website.\n\nScore: ${score}/100 (${lvl})\nPriorities: ${top.map(([k])=>name(k)).join(", ")||"-"}\n\nCompany:\nNumber of employees:\n\nI would like to talk about improving these points.`
-        :`Olá! Fiz o teste de segurança no site da 3RL.\n\nNota: ${score}/100 (${lvl})\nPrioridades: ${top.map(([k])=>name(k)).join(", ")||"-"}\n\nEmpresa:\nNúmero de colaboradores:\n\nGostaria de conversar sobre como melhorar esses pontos.`;
-      cta.href="mailto:adm@3rl.com.br?subject="+encodeURIComponent(subj)+"&body="+encodeURIComponent(body);
-      cta.hidden=false; rs.hidden=false;
-    };
-    form.addEventListener("change",window.mRender);
-    $("mReset").addEventListener("click",()=>{form.reset();window.mRender();form.scrollIntoView({behavior:"smooth",block:"start"});});
-    window.mRender();
-  })();
-
-  // animação de entrada
-  const io = "IntersectionObserver" in window ? new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} }),{threshold:.12}) : null;
-  document.querySelectorAll(".reveal").forEach(el=> io ? io.observe(el) : el.classList.add("in"));
-
-  document.getElementById("yr").textContent = new Date().getFullYear();
-</script>
+<script src="/site.js"></script>
 </body>
 </html>

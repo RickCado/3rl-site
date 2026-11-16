@@ -2,10 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.3rl.com.br/</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.3rl.com.br/ferramentas/</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.3rl.com.br/ferramentas/verificador-de-email</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.3rl.com.br/ferramentas/teste-de-seguranca</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.3rl.com.br/ferramentas/calculadora-de-automacao</loc>
+    <lastmod>2026-11-16</lastmod>
   </url>
   <url>
     <loc>https://www.3rl.com.br/senhas/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.3rl.com.br/treinamento-antigolpe</loc>
+    <lastmod>2026-11-16</lastmod>
+  </url>
+  <url>
+    <loc>https://www.3rl.com.br/privacidade</loc>
+    <lastmod>2026-11-16</lastmod>
   </url>
 </urlset>
