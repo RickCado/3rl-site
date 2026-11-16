@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de automação — 3RL</title>
+<meta name="description" content="Descubra quanto tempo e dinheiro a sua equipe gasta com tarefas repetitivas que poderiam ser automatizadas.">
+<meta property="og:title" content="Calculadora de automação — 3RL">
+<meta property="og:description" content="Descubra quanto tempo e dinheiro a sua equipe gasta com tarefas repetitivas que poderiam ser automatizadas.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.3rl.com.br/ferramentas/calculadora-de-automacao">
+<meta property="og:image" content="https://www.3rl.com.br/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="3RL — Consultoria, automação, tecnologia e desenvolvimento">
+<meta property="og:site_name" content="3RL">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculadora de automação — 3RL">
+<meta name="twitter:description" content="Descubra quanto tempo e dinheiro a sua equipe gasta com tarefas repetitivas que poderiam ser automatizadas.">
+<meta name="twitter:image" content="https://www.3rl.com.br/og.jpg">
+<meta name="theme-color" content="#070f1c">
+<link rel="canonical" href="https://www.3rl.com.br/ferramentas/calculadora-de-automacao">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2322d3b6'/%3E%3Cstop offset='1' stop-color='%236366f1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Arial,Helvetica,sans-serif' font-size='24' font-weight='800' fill='%23070f1c' text-anchor='middle'%3E3RL%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/site.css">
+</head><body>
+<div class="bg" aria-hidden="true"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+
+<div class="wrap">
+<header>
+  <nav class="nav">
+    <a href="/" class="logo" aria-label="3RL"><i></i><span>3<b>RL</b></span></a>
+    <div class="links">
+      <a href="/#servicos" data-i18n="nav1">Serviços</a>
+      <a href="/#solucoes" data-i18n="navPacks">Soluções</a>
+      <a href="/ferramentas/" data-i18n="navTools">Ferramentas</a>
+      <a href="/treinamento-antigolpe" data-i18n="navAg">Antigolpe</a>
+      <a href="/#contato" data-i18n="nav3">Contato</a>
+    </div>
+    <div class="nav-right">
+      <button class="lang" id="langBtn" type="button" aria-label="Switch to English"></button>
+      <a href="/#contato" class="btn small" data-i18n="navContact">Fale conosco</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<main>
+  <nav class="crumb" aria-label="Navegação estrutural"><a href="/ferramentas/" data-i18n="crumbTools">Ferramentas gratuitas</a><span aria-hidden="true">/</span></nav>
+  <section id="calculadora" class="page-top">
+    <div class="reveal" style="margin-bottom:40px">
+      <div class="eyebrow" data-i18n="calcEyebrow">Calculadora</div>
+      <h1 class="page-h1" data-i18n="calcTitle">Quanto custam as tarefas manuais?</h1>
+      <p class="sub" data-i18n="calcSub">Descubra quanto tempo e dinheiro a sua equipe gasta com tarefas repetitivas, aquelas que poderiam ser automatizadas.</p>
+    </div>
+    <div class="calc reveal">
+      <div class="panel">
+        <div class="field">
+          <div class="field-top"><label for="qPeople" data-i18n="fPeople">Pessoas na equipe</label><div class="val"><input type="number" id="nPeople" min="1" max="500" value="5" inputmode="numeric" aria-label="Pessoas"></div></div>
+          <input type="range" id="qPeople" min="1" max="100" value="5">
+        </div>
+        <div class="field">
+          <div class="field-top"><label for="qHours" data-i18n="fHours">Horas por semana, por pessoa, em tarefas repetitivas</label><div class="val"><input type="number" id="nHours" min="0" max="60" value="8" inputmode="decimal" aria-label="Horas"><span>h</span></div></div>
+          <input type="range" id="qHours" min="0" max="40" value="8">
+          <small data-i18n="fHoursHint">Ex.: copiar dados entre sistemas, montar relatórios, conferir planilhas, responder e-mails padrão.</small>
+        </div>
+        <div class="field">
+          <div class="field-top"><label for="qCost" data-i18n="fCost">Custo médio da hora de trabalho</label><div class="val"><span id="cur">R$</span><input type="number" id="nCost" min="0" max="2000" value="50" inputmode="decimal" aria-label="Custo"></div></div>
+          <input type="range" id="qCost" min="10" max="500" step="5" value="50">
+          <small data-i18n="fCostHint">Inclua salário e encargos. Na dúvida, use um valor aproximado.</small>
+        </div>
+        <div class="field">
+          <div class="field-top"><label for="qAuto" data-i18n="fAuto">Parte que você acredita ser automatizável</label><div class="val"><input type="number" id="nAuto" min="0" max="100" value="50" inputmode="numeric" aria-label="Percentual"><span>%</span></div></div>
+          <input type="range" id="qAuto" min="0" max="100" step="5" value="50">
+        </div>
+      </div>
+      <div class="panel result" aria-live="polite">
+        <div class="r-label" data-i18n="rYear">Custo por ano com tarefas repetitivas</div>
+        <div class="big" id="oYear">R$ 0</div>
+        <div class="r-sub" id="oMonthLine"></div>
+        <div class="r-grid">
+          <div class="r-box"><span data-i18n="rHours">Horas por mês</span><b id="oHours">0 h</b></div>
+          <div class="r-box"><span data-i18n="rDays">Dias de trabalho por mês</span><b id="oDays">0</b></div>
+          <div class="r-box hl"><span data-i18n="rFreeH">Horas liberadas por ano</span><b id="oFreeH">0 h</b></div>
+          <div class="r-box hl"><span data-i18n="rSave">Potencial por ano</span><b id="oSave">R$ 0</b></div>
+        </div>
+        <a class="btn" id="calcCta" href="mailto:adm@3rl.com.br" data-i18n="calcCta">Quero conversar sobre isso</a>
+        <p class="note" data-i18n="calcNote">Estimativa ilustrativa, calculada só com os números que você informou. Não é uma promessa de resultado: o potencial real depende de cada processo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="more-tools">
+    <h2 class="h-small" data-i18n="moreTools">Outras ferramentas gratuitas</h2>
+    <div class="tgrid three">
+      <a class="tcard reveal" href="/ferramentas/verificador-de-email">
+        <span class="tic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></svg></span>
+        <h3 data-i18n="tl1">Verificador de e-mail</h3>
+        <p data-i18n="tl1d">Veja em segundos se o e-mail da empresa está protegido contra falsificação.</p>
+        <span class="go" data-i18n="tlGo">Usar grátis →</span>
+      </a>
+      <a class="tcard reveal" href="/ferramentas/teste-de-seguranca">
+        <span class="tic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span>
+        <h3 data-i18n="tl2">Teste de segurança</h3>
+        <p data-i18n="tl2d">13 perguntas para descobrir os pontos que mais expõem a sua empresa.</p>
+        <span class="go" data-i18n="tlGo">Usar grátis →</span>
+      </a>
+      <a class="tcard reveal" href="/senhas/">
+        <span class="tic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+        <h3 data-i18n="tl4">Gerador de senhas</h3>
+        <p data-i18n="tl4d">Senhas fortes em um clique, criadas no seu aparelho. Funciona offline.</p>
+        <span class="go" data-i18n="tlGo">Usar grátis →</span>
+      </a>
+    </div>
+  </section>
+</main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <a href="/" class="logo" aria-label="3RL"><i></i><span>3<b>RL</b></span></a>
+        <p data-i18n="foot">Consultoria, automação, tecnologia e desenvolvimento</p>
+        <a class="fmail" href="mailto:adm@3rl.com.br">adm@3rl.com.br</a>
+      </div>
+      <div>
+        <h3 data-i18n="fCompany">Empresa</h3>
+        <a href="/#servicos" data-i18n="nav1">Serviços</a>
+        <a href="/#solucoes" data-i18n="navPacks">Soluções</a>
+        <a href="/treinamento-antigolpe" data-i18n="fAg">Treinamento Antigolpe</a>
+        <a href="/#contato" data-i18n="nav3">Contato</a>
+      </div>
+      <div>
+        <h3 data-i18n="navTools">Ferramentas</h3>
+        <a href="/ferramentas/verificador-de-email" data-i18n="tl1">Verificador de e-mail</a>
+        <a href="/ferramentas/teste-de-seguranca" data-i18n="tl2">Teste de segurança</a>
+        <a href="/ferramentas/calculadora-de-automacao" data-i18n="tl3">Calculadora de automação</a>
+        <a href="/senhas/" data-i18n="tl4">Gerador de senhas</a>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>© <span id="yr">2026</span> 3RL</span>
+      <a href="/privacidade" data-i18n="fPriv">Privacidade</a>
+    </div>
+  </div>
+</footer>
+<script src="/site.js"></script>
+</body>
+</html>
